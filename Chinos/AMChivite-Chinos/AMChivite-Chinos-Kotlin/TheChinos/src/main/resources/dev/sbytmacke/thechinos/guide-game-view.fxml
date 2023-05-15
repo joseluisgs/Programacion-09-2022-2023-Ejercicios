@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="10.0"
+      xmlns="http://javafx.com/javafx/16">
+
+    <Label text="¡Bienvenido al juego de las bolas chinas!"/>
+    <Label text="¿Cómo se juega?"/>
+    <VBox spacing="5.0">
+        <Label text="1. Elige la cantidad de rondas que quieres adivinar que tiene la máquina"/>
+        <Label text="2. Elige la cantidad de bolas que tienes y la máquina debe adivinarlas"/>
+        <Label text="Recuerda que el número de bolas debe estar entre 3 y 7"/>
+    </VBox>
+</VBox>
+

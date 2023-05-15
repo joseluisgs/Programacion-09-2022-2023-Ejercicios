@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="356.0" prefWidth="329.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="dev.sbytmacke.thechinos.controllers.MainViewController">
+    <top>
+        <MenuBar>
+            <Menu text="Opciones">
+                <MenuItem mnemonicParsing="false" text="New Game+" fx:id="newGame"/>
+                <MenuItem text="Guía del Juego" fx:id="guideMenuItem"/>
+                <MenuItem text="Exit" fx:id="exitMenuItem"/>
+            </Menu>
+            <Menu text="Acerca de">
+                <MenuItem text="About" fx:id="aboutMenuItem"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="CENTER" prefHeight="355.0" prefWidth="307.0" spacing="20">
+            <ImageView fx:id="chinoImage" fitHeight="75.0" fitWidth="100.0"/>
+            <Label scaleX="2.0" scaleY="2.0" text="The Chinos"/>
+            <Separator/>
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="Se juega al mejor de:"/>
+                <Spinner fx:id="roundsSpinner" editable="false" max="3" min="1" prefWidth="100"/>
+            </HBox>
+            <VBox alignment="CENTER" spacing="10">
+                <Button fx:id="startButton" mnemonicParsing="false" prefWidth="100" text="Start"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
+
+

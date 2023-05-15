@@ -1,0 +1,221 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 257949696 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3557), pid=6528, tid=14848
+#
+# JRE version:  (17.0.6+10) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.6+10-LTS, mixed mode, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-modules=javafx.controls,javafx.fxml --module-path=C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.10\cb726a23c808a850a43e7d6b9d1ba91b02fe9f05\kotlin-stdlib-jdk7-1.8.10.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\com.michael-bull.kotlin-result\kotlin-result-jvm\1.1.17\a318d818ff65c800d4d12526056a1a8a1e521e48\kotlin-result-jvm-1.1.17.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\io.github.microutils\kotlin-logging-jvm\3.0.4\fb66155bec41f7c2c8b9be53dbb7c191c83b9415\kotlin-logging-jvm-3.0.4.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-fxml\17.0.2\5079f88d5345e988222c90a345ad682b7aaccad3\javafx-fxml-17.0.2-win.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar;C:\Users\Gumi\Desktop\TheChinos\build\classes\merged;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.8.10\a61b182458550492c12aee66157d7b524a63a5ec\kotlin-stdlib-common-1.8.10.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\2.0.4\30d5eb5360bd113ce96f9e49e3431993bbf1b247\slf4j-api-2.0.4.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\17.0.2\707f290bacde2738c0a7e1d0b4a8193002c29cf7\javafx-controls-17.0.2-win.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\17.0.2\6f95886c8fed3e1b21370a199c3937846ef6b3cc\javafx-graphics-17.0.2-win.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.10\7c002ac41f547a82e81dfebd2a20577a738dbf3f\kotlin-stdlib-jdk8-1.8.10.jar;C:\Users\Gumi\Desktop\TheChinos\build\libs\TheChinos-1.0-SNAPSHOT.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.8.10\6d5560a229477df9406943d5feda5618e98eb64c\kotlin-stdlib-1.8.10.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\17.0.2\1bd6dc88b180a6239a5067320c2f0d7f3526e1d2\j--patch-module=dev.sbytmacke.thechinos=C:\Users\Gumi\Desktop\TheChinos\build\resources\main -Dfile.encoding=windows-1252 -Duser.country=ES -Duser.language=es -Duser.variant -Djdk.module.main=dev.sbytmacke.thechinos dev.sbytmacke.thechinos/dev.sbytmacke.thechinos.MainApp
+
+Host: AMD Ryzen 7 5700U with Radeon Graphics         , 16 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.1635)
+Time: Thu May 11 21:12:41 2023 Hora de verano romance elapsed time: 0.015186 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002836fe4a230):  JavaThread "Unknown thread" [_thread_in_vm, id=14848, stack(0x0000008839a00000,0x0000008839b00000)]
+
+Stack: [0x0000008839a00000,0x0000008839b00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x64af5a]
+V  [jvm.dll+0x7fea64]
+V  [jvm.dll+0x80021e]
+V  [jvm.dll+0x800873]
+V  [jvm.dll+0x235648]
+V  [jvm.dll+0x647eba]
+V  [jvm.dll+0x63c5ca]
+V  [jvm.dll+0x2f3c69]
+V  [jvm.dll+0x2fad66]
+V  [jvm.dll+0x34725a]
+V  [jvm.dll+0x34749f]
+V  [jvm.dll+0x2ca348]
+V  [jvm.dll+0x2cb2d9]
+V  [jvm.dll+0x7d2231]
+V  [jvm.dll+0x354721]
+V  [jvm.dll+0x7b277e]
+V  [jvm.dll+0x3d13c3]
+V  [jvm.dll+0x3d2dc1]
+C  [jli.dll+0x519f]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x126ad]
+C  [ntdll.dll+0x5a9f8]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fffface28e8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002836feb48c0 GCTaskThread "GC Thread#0" [stack: 0x0000008839b00000,0x0000008839c00000] [id=10668]
+  0x000002836fec4ea0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000008839c00000,0x0000008839d00000] [id=4560]
+  0x000002836fec6050 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000008839d00000,0x0000008839e00000] [id=13008]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffffa4cb557]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002836fe46300] Heap_lock - owner thread: 0x000002836fe4a230
+
+Heap address: 0x00000006cac00000, size: 3924 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) not mapped
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x00000006cac00000, 0x00000007c0000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffffa892999]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.008 Loaded shared library C:\Program Files\BellSoft\LibericaJDK-17\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff716dc0000 - 0x00007ff716dcd000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\java.exe
+0x00007ff83d430000 - 0x00007ff83d644000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff83bbc0000 - 0x00007ff83bc82000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff83a9b0000 - 0x00007ff83ad53000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff83aed0000 - 0x00007ff83afe1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff80bcf0000 - 0x00007ff80bd05000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\VCRUNTIME140.dll
+0x00007ff80bb90000 - 0x00007ff80bba7000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\jli.dll
+0x00007ff83c3d0000 - 0x00007ff83c57b000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff81c7d0000 - 0x00007ff81ca5e000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.1635_none_270f70857386168e\COMCTL32.dll
+0x00007ff83b180000 - 0x00007ff83b1a6000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff83d0f0000 - 0x00007ff83d197000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff83b970000 - 0x00007ff83b999000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff83b060000 - 0x00007ff83b178000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff83a850000 - 0x00007ff83a8ea000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff83c380000 - 0x00007ff83c3b1000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007fffff0d0000 - 0x00007fffff16b000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\msvcp140.dll
+0x00007ffffa1f0000 - 0x00007ffffae10000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\server\jvm.dll
+0x00007ff83bc90000 - 0x00007ff83bd3e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff83b610000 - 0x00007ff83b6b4000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff83b850000 - 0x00007ff83b967000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff81bd00000 - 0x00007ff81bd09000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff833cf0000 - 0x00007ff833cfa000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff832cd0000 - 0x00007ff832d04000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff83c580000 - 0x00007ff83c5f1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff839910000 - 0x00007ff839928000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff8136f0000 - 0x00007ff8136fa000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\jimage.dll
+0x00007ff838270000 - 0x00007ff83849e000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff83b230000 - 0x00007ff83b5b9000 	C:\WINDOWS\System32\combase.dll
+0x00007ff83d1a0000 - 0x00007ff83d277000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff81c480000 - 0x00007ff81c4b2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff83b1b0000 - 0x00007ff83b22b000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff805e10000 - 0x00007ff805e35000 	C:\Program Files\BellSoft\LibericaJDK-17\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\BellSoft\LibericaJDK-17\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.1635_none_270f70857386168e;C:\Program Files\BellSoft\LibericaJDK-17\bin\server
+
+VM Arguments:
+jvm_args: --add-modules=javafx.controls,javafx.fxml --module-path=C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.10\cb726a23c808a850a43e7d6b9d1ba91b02fe9f05\kotlin-stdlib-jdk7-1.8.10.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\com.michael-bull.kotlin-result\kotlin-result-jvm\1.1.17\a318d818ff65c800d4d12526056a1a8a1e521e48\kotlin-result-jvm-1.1.17.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\io.github.microutils\kotlin-logging-jvm\3.0.4\fb66155bec41f7c2c8b9be53dbb7c191c83b9415\kotlin-logging-jvm-3.0.4.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-fxml\17.0.2\5079f88d5345e988222c90a345ad682b7aaccad3\javafx-fxml-17.0.2-win.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar;C:\Users\Gumi\Desktop\TheChinos\build\classes\merged;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.8.10\a61b182458550492c12aee66157d7b524a63a5ec\kotlin-stdlib-common-1.8.10.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\2.0.4\30d5eb5360bd113ce96f9e49e3431993bbf1b247\slf4j-api-2.0.4.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\17.0.2\707f290bacde2738c0a7e1d0b4a8193002c29cf7\javafx-controls-17.0.2-win.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\17.0.2\6f95886c8fed3e1b21370a199c3937846ef6b3cc\javafx-graphics-17.0.2-win.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.10\7c002ac41f547a82e81dfebd2a20577a738dbf3f\kotlin-stdlib-jdk8-1.8.10.jar;C:\Users\Gumi\Desktop\TheChinos\build\libs\TheChinos-1.0-SNAPSHOT.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.8.10\6d5560a229477df9406943d5feda5618e98eb64c\kotlin-stdlib-1.8.10.jar;C:\Users\Gumi\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\17.0.2\1bd6dc88b180a6239a5067320c2f0d7f3526e1d2\j--patch-module=dev.sbytmacke.thechinos=C:\Users\Gumi\Desktop\TheChinos\build\resources\main -Dfile.encoding=windows-1252 -Duser.country=ES -Duser.language=es -Duser.variant -Djdk.module.main=dev.sbytmacke.thechinos 
+java_command: dev.sbytmacke.thechinos/dev.sbytmacke.thechinos.MainApp
+java_class_path (initial): <not set>
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 257949696                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4114612224                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4114612224                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_202
+PATH=C:\Program Files\BellSoft\LibericaJDK-17\bin\;C:\Python310\Scripts\;C:\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;D:\Archivos de Programa (Win_11_x64)\BaseX\bin;C:\Program Files\BellSoft\LibericaJDK-17\\bin;C:\Program Files\AutoFirma\AutoFirma;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Gumi\AppData\Local\Microsoft\WindowsApps;C:\Users\Gumi\AppData\Local\Programs\Microsoft VS Code\bin;D:\Archivos de Programa (Win_11_x64)\IntelliJ IDEA 2022.3\bin;;C:\Users\Gumi\AppData\Local\gitkraken\bin;C:\Users\Gumi\AppData\Roaming\npm;C:\Program Files\BellSoft\LibericaJDK-17-Full\bin;C:\kotlinc\bin;C:\Users\Gumi\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\DataGrip 2022.3.2\bin;;
+USERNAME=Gumi
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
+TMP=C:\Users\Gumi\AppData\Local\Temp
+TEMP=C:\Users\Gumi\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.1635)
+OS uptime: 0 days 9:45 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (16 cores per cpu, 2 threads per core) family 23 model 104 stepping 1 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv
+
+Memory: 4k page, system-wide physical 15693M (236M free)
+TotalPageFile size 38983M (AvailPageFile size 124M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 70M, peak: 316M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.6+10-LTS) for windows-amd64 JRE (17.0.6+10-LTS), built on Jan 12 2023 13:19:07 by "" with MS VC++ 15.9 (VS2017)
+
+END.
