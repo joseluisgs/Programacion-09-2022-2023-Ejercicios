@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox prefHeight="338.0" prefWidth="505.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="264.0">
+               <children>
+                  <Label text="Un poco de informacón sobre ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="el juego de las bolas chinas">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <ImageView fitHeight="119.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/bolas.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Separator prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <HBox alignment="TOP_CENTER" prefHeight="220.0" prefWidth="600.0" spacing="60.0">
+         <children>
+            <Label text="Info:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextArea editable="false" prefHeight="109.0" prefWidth="259.0" text="En el juego hay dos jugadores, cada uno &#10;elige una cantidad de bolas a poner y&#10;otra cantidad que será con la que intentan&#10;adivinar la suma de las bolas elegidas por&#10;ambos jugadores.&#10;En caso de que un jugador consiga adivinar&#10;el número de bolas que hay, gana una ronda.&#10;Quien consiga ganar el suficiente número de&#10;rondas, gana la partida." />
+         </children>
+      </HBox>
+   </children>
+</VBox>
