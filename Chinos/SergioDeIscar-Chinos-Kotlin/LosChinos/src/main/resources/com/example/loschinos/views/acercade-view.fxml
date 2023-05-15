@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loschinos.controllers.AcercaDeControllerView">
+   <children>
+      <Label layoutX="61.0" layoutY="14.0" prefHeight="50.0" prefWidth="177.0" text="Los Chinos">
+         <font>
+            <Font name="Cascadia Mono Regular" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageLogo" fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
