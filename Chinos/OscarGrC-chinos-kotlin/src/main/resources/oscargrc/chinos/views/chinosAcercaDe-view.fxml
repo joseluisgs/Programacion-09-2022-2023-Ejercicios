@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oscargrc.chinos.controllers.chinosAcercaDeController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="152.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="105.0" text="¿Como se Juega?">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea prefHeight="97.0" prefWidth="358.0" text="Gana quien acierta la suma del total de chinos de los jugadores. &#10;-No se pueden repetir predicciones hechas  &#10;-Se debe tener un mínimo de 3 chinos. &#10;">
+               <HBox.margin>
+                  <Insets bottom="15.0" top="30.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="202.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="188.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/GitHub.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></ImageView>
+            <VBox prefHeight="198.0" prefWidth="380.0" spacing="10.0">
+               <children>
+                  <Hyperlink fx:id="enlaceGithub" text="MyGitHub" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="60.0" text="Colaborar:" />
+                        <Hyperlink fx:id="enlaceDineros" text="Colabora con nosotros" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="50.0" />
+               </padding>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
