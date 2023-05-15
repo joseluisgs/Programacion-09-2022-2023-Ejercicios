@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="155.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.sergiosf.chinos.controller.AboutContoller">
+   <children>
+      <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/chinese.png" />
+         </image>
+      </ImageView>
+      <Label contentDisplay="CENTER" layoutX="137.0" layoutY="23.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="188.0" text="JUEGO DE LOS CHINOS" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="141.0" layoutY="54.0" prefHeight="25.0" prefWidth="179.0" text="Sergio Simón Fernández">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="linkGitHub" layoutX="231.0" layoutY="94.0" text="GitHub">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="175.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/github_PNG40-3901690518.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
