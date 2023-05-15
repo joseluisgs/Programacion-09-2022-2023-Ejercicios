@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.sergiosf.chinos.controller.MainController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="exit" mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem fx:id="aboutButtom" mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.4397993311036789" prefHeight="380.0" prefWidth="600.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <VBox prefHeight="373.0" prefWidth="260.0" spacing="15.0">
+                            <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="131.0" prefWidth="260.0" spacing="10.0">
+                                 <children>
+                                    <Text fx:id="stringRound" strokeType="OUTSIDE" strokeWidth="0.0" text="Rondas restantes: " />
+                                    <Text fx:id="intRoud" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="countPlayers" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="85.0" prefWidth="79.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Player:" />
+                                          <Text fx:id="pjCount" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="85.0" prefWidth="65.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IA" />
+                                          <Text fx:id="iaCount" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="85.0" prefWidth="82.0" spacing="5.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Empates" />
+                                          <Text fx:id="empatesCount" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                                <HBox fx:id="initParams" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="126.0" prefWidth="219.0">
+                                    <children>
+                                        <GridPane prefHeight="68.0" prefWidth="219.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="95.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="124.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº de Bolas" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº de Rondas" GridPane.rowIndex="1" />
+                                                <Spinner fx:id="nBolas" GridPane.columnIndex="1" />
+                                                <Spinner fx:id="nRondas" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="343.0">
+                    <children>
+                        <VBox prefHeight="373.0" prefWidth="332.0">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="135.0" prefWidth="373.0" spacing="30.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Juego de los chinos">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Text>
+                                        <ImageView fitHeight="146.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/chinese.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="15.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="34.0" prefWidth="332.0">
+                                    <VBox.margin>
+                                        <Insets top="15.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <Button fx:id="start" mnemonicParsing="false" text="Jugar" />
+                                    </children>
+                                </HBox>
+                                <VBox>
+                                    <VBox.margin>
+                                        <Insets top="15.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                <VBox fx:id="enemyBox" alignment="TOP_CENTER" prefHeight="115.0" prefWidth="332.0" spacing="20.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Cuantas bolas tiene el contrincante?">
+                                            <VBox.margin>
+                                                <Insets top="15.0" />
+                                            </VBox.margin>
+                                        </Text>
+                                        <Spinner fx:id="nBolasEnemy" />
+                                        <Button fx:id="tryRound" mnemonicParsing="false" text="Apostar" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</VBox>
