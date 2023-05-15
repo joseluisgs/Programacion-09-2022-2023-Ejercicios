@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="590.0" spacing="30.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.sergiomisas.juegodelasbolas.controllers.BolasController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuItemAcercaDe" mnemonicParsing="false" onAction="#onClickAcercaDe" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <GridPane maxHeight="-Infinity" prefHeight="90.0" prefWidth="369.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="TOP_LEFT" text="Victorias Jugador" GridPane.rowIndex="1" />
+                  <Label text="Victorias Ordenador" GridPane.rowIndex="2" />
+                  <Label text="Empates" GridPane.rowIndex="3" />
+                  <Label fx:id="labelVictoriasJugador" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="labelVictoriasOrdenador" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="labelEmpates" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Rondas jugadas" />
+                  <Label fx:id="labelRondas" text="0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <ImageView fx:id="imageViewTalisca" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/talisca.jpg" />
+               </image></ImageView>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <Label fx:id="labelPregunta" text="¿Cuantas bolas tiene el rival?">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <Spinner fx:id="spinnerCanicas" amountToStepBy="2" max="7" min="3" />
+      <Button fx:id="buttonSeleccionar" mnemonicParsing="false" onAction="#onClickSeleccionar" text="Seleccionar">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="buttonResetearJuego" mnemonicParsing="false" onAction="#onClickResetearJuego" text="Resetear Juego" />
+   </children>
+</VBox>
