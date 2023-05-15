@@ -10,6 +10,8 @@ import javafx.scene.control.TextArea
 import javafx.scene.control.TextField
 import mu.KotlinLogging
 import com.jczhang.jczhangbolaschinaskotlinjavafx.routes.RouterManager
+import javafx.application.Platform
+import javafx.event.Event
 import javafx.scene.control.SpinnerValueFactory
 import java.util.concurrent.CountDownLatch
 
@@ -32,7 +34,6 @@ class MainViewController {
 
     private val logger = KotlinLogging.logger {}
 
-    private val latch = CountDownLatch(1)
 
     private var victoriasCount = 0
     private var derrotasCount = 0
@@ -45,15 +46,20 @@ class MainViewController {
         numRondas.valueFactory = SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1, 1)
     }
 
-    fun onCloseAction(): Boolean {
+    fun onCloseAction(event: Event) {
         logger.debug { "Closing" }
 
         val alert = Alert(Alert.AlertType.CONFIRMATION)
         alert.apply {
             headerText = "¿Está seguro de que desea salir?"
             contentText = "Se perderán todos los datos no guardados."
-            val result = alert.showAndWait()
-            return result.get() == ButtonType.OK
+
+        }.showAndWait().ifPresent{
+            if (it == ButtonType.OK){
+                Platform.exit()
+            }else{
+                event.consume()
+            }
         }
     }
 
@@ -61,6 +67,7 @@ class MainViewController {
         RouterManager.acercaDeInit()
     }
 
+    @FXML
     fun onAceptarNumRondas() {
         numRondasActual = numRondas.value!!
         contadorRondas = 0
@@ -70,7 +77,10 @@ class MainViewController {
     private fun iniciarPartida() {
         if (contadorRondas < numRondasActual) {
             contadorRondas++
-            escribirInstrucciones()
+            if (contadorRondas == 1) {
+                escribirInstrucciones()
+            }
+
         } else {
             textArea.appendText("La partida ha terminado \n")
         }
@@ -84,6 +94,7 @@ class MainViewController {
         textArea.appendText("\n")
     }
 
+    @FXML
     fun comprobarApuesta() {
         val numPc = PC().generarNumRandom()
 
@@ -100,6 +111,7 @@ class MainViewController {
         val apuestaUsuario = apuesta.text.toInt()
 
         if (apuestaUsuario == numPc) {
+
             textArea.appendText("¡Enhorabuena! Has adivinado el número y has conseguido una victoria.\n")
             victoriasCount++
             victorias
@@ -111,7 +123,6 @@ class MainViewController {
         }
 
         if (contadorRondas < numRondasActual) {
-            latch.await() // Esperar a que el usuario pulse el botón para continuar
             iniciarPartida()
         } else {
             textArea.appendText("La partida ha terminado \n")
@@ -120,7 +131,7 @@ class MainViewController {
 
 
     private fun validate(apuesta: TextField): Boolean {
-        val regex = "[0-5]+".toRegex()
+        val regex = "[0-9]+".toRegex()
         return regex.matches(apuesta.text)
     }
 

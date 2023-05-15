@@ -50,9 +50,7 @@ object RouterManager {
         stage.icons.add(javafx.scene.image.Image("${System.getProperty("user.dir")}${File.separator}src${File.separator}main${File.separator}resources${File.separator}icons${File.separator}canicas.png"))
         stage.scene = scene
         stage.onCloseRequest = EventHandler { event ->
-            if (!controller.onCloseAction()) {
-                event.consume()
-            }
+            controller.onCloseAction(event)
         }
         mainStage = stage
         _activeStage = stage
