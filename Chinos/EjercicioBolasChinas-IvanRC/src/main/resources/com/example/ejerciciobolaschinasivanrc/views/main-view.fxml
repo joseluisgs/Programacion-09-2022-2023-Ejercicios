@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="697.0" prefWidth="504.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ejerciciobolaschinasivanrc.controllers.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="571.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="App">
+            <items>
+              <MenuItem fx:id="cerrar" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem fx:id="acercaDe" mnemonicParsing="false" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox fx:id="cajaDeJuego" prefHeight="457.0" prefWidth="464.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="86.0" prefWidth="404.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="116.0" prefWidth="266.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="266.0" text="El juego de las bolas">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="266.0" text="chinas, comienza!!!!">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="116.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/bolas.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <TextArea fx:id="cajaTexto" prefHeight="344.0" prefWidth="464.0" />
+            <VBox alignment="CENTER" prefHeight="59.0" prefWidth="464.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="87.0" prefWidth="451.0" spacing="10.0">
+                     <children>
+                        <Label text="Victorias Ordenador:" />
+                        <Label fx:id="victOrdenador" prefHeight="17.0" prefWidth="70.0" text="0" />
+                        <Label text="Victorias Jugador:" />
+                        <Label fx:id="victJugador" prefHeight="17.0" prefWidth="32.0" text="0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Label text="Bolas:" />
+                        <Spinner fx:id="spinnerBolasJug" />
+                        <Label text="Apuesta:" />
+                        <Spinner fx:id="spinnerAdivinar" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="botonJugar" mnemonicParsing="false" text="Intentar adivinar" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Separator prefHeight="0.0" prefWidth="464.0" style="-fx-background-color: black; -fx-border-color: black;" />
+      <VBox fx:id="cajaComienzo" alignment="CENTER" prefHeight="169.0" prefWidth="464.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="116.0" prefWidth="266.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="266.0" text="Bienvenido al juego">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="266.0" text="de las bolas chinas">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="80.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/bolas.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Nº bolas:" />
+                  <Spinner fx:id="spinnerBolas" />
+                  <Label text="Nº Rondas:" />
+                  <Spinner fx:id="spinnerRondas" />
+               </children>
+            </HBox>
+            <Button fx:id="botonComenzar" mnemonicParsing="false" text="Comenzar" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
