@@ -1,13 +1,21 @@
 package dev.kuromiichi.emmafernandezjuegocanicas.controllers
 
 import dev.kuromiichi.emmafernandezjuegocanicas.Juego
+import dev.kuromiichi.emmafernandezjuegocanicas.data.routes.RoutesManager
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.MenuItem
 import javafx.scene.control.Spinner
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory
 import javafx.scene.control.TextField
 
 class CanicasController {
+    @FXML
+    private lateinit var menuItemInstrucciones: MenuItem
+
+    @FXML
+    private lateinit var menuItemAcercaDe: MenuItem
+
     @FXML
     private lateinit var textFieldGanadas: TextField
 
@@ -45,6 +53,10 @@ class CanicasController {
 
         // Botón de confirmar
         buttonConfirmar.setOnAction { onButtonConfirmarClick() }
+
+        // Menú
+        menuItemInstrucciones.setOnAction { RoutesManager.initInstruccionesStage() }
+        menuItemAcercaDe.setOnAction { RoutesManager.initAcercaDeStage() }
 
         // iniciar ronda
         Juego.iniciarRonda()
