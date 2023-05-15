@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.kuromiichi.emmafernandezjuegocanicas.controllers.AcercaDeController">
+   <children>
+      <Label fx:id="labelCreadoPor" text="creadoPor" />
+      <ImageView fx:id="imageViewCanica" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</HBox>
