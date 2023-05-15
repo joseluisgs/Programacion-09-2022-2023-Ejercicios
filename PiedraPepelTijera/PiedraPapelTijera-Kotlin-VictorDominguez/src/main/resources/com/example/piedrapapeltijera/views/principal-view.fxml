@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="510.0" style="-fx-background-color: #E2FFF9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane prefHeight="324.0" prefWidth="107.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="botonPiedra" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onBotonPiedraClick" onMouseEntered="#onRatonEnPiedra" onMouseExited="#onRatonFueraPiedra" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #E2FFF9;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonPapel" mnemonicParsing="false" onAction="#onBotonPapelClick" onMouseEntered="#onRatonEnPapel" onMouseExited="#onRatonFueraPapel" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #E2FFF9;" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonTijera" mnemonicParsing="false" onAction="#onBotonTijeraClick" onMouseEntered="#onRatonEnTijera" onMouseExited="#onRatonFueraTijera" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #E2FFF9;" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonLagarto" mnemonicParsing="false" onAction="#onBotonLagartoClick" onMouseEntered="#onRatonEnLagarto" onMouseExited="#onRatonFueraLagarto" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #E2FFF9;" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonSpock" mnemonicParsing="false" onAction="#onBotonSpockClick" onMouseEntered="#onRatonEnSpock" onMouseExited="#onRatonFueraSpock" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #E2FFF9;" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="botonReglas" mnemonicParsing="false" onAction="#onBotonReglasClick" onMouseEntered="#onRatonEnReglas" onMouseExited="#onRatonFueraReglas" text="REGLAS" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <VBox prefHeight="324.0" prefWidth="400.0">
+         <children>
+            <GridPane fx:id="tabla" prefHeight="241.0" prefWidth="450.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="114.79999389648438" minHeight="10.0" prefHeight="66.00000610351563" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="177.19998779296876" minHeight="10.0" prefHeight="174.79999389648438" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fx:id="jugadaJugador" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fx:id="jugadaPc" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ImageView>
+                  <Label text="JUGADOR">
+                     <font>
+                        <Font name="Century Gothic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="PC" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Century Gothic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </GridPane>
+            <TextField fx:id="textoFinal" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="400.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="50.0" right="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+   </children>
+</HBox>
