@@ -1,0 +1,97 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.25.0'
+    // SQLDelight
+    id 'app.cash.sqldelight' version "2.0.0-alpha05"
+}
+
+group 'dev.sbytmacke'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.9.1'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'dev.sbytmacke.vehiculositv'
+    mainClass = 'dev.sbytmacke.vehiculositv.MainApp'
+}
+
+[compileKotlin, compileTestKotlin].forEach {
+    it.kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    // Mockk para test
+    testImplementation("io.mockk:mockk:1.13.3")
+
+    // Results
+    implementation("com.michael-bull.kotlin-result:kotlin-result:1.1.17")
+
+    // Kotlin logger
+    implementation("ch.qos.logback:logback-classic:1.4.5")
+    implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
+
+    // Koin
+    implementation("io.insert-koin:koin-core:3.4.0")
+    implementation("io.insert-koin:koin-logger-slf4j:3.4.0")
+
+    // GSON
+    implementation("com.google.code.gson:gson:2.8.9")
+
+    // SQLDeLight
+    implementation("app.cash.sqldelight:sqlite-driver:2.0.0-alpha05")
+    implementation("org.xerial:sqlite-jdbc:3.41.2.1")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jlink {
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'app'
+    }
+}
+
+jlinkZip {
+    group = 'distribution'
+}
+
+// Configuración del plugin de SqlDeLight
+sqldelight {
+    databases {
+        // Nombre de la base de datos
+        create("AppDatabase") {
+            // Paquete donde se generan las clases
+            packageName.set("dev.sbytmacke.vehiculositv.database")
+        }
+    }
+}
