@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionvehiculosconimagenes_kotlin.controllers.VehiculosDetallesController">
+   <children>
+      <SplitPane dividerPositions="0.8345864661654135" orientation="VERTICAL" prefHeight="408.0" prefWidth="290.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="294.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="96.0" prefWidth="260.0" spacing="10.0">
+                     <children>
+                        <Label text="ID:" />
+                        <TextField fx:id="idVehiculo" disable="true" prefHeight="25.0" prefWidth="62.0" />
+                        <ImageView fx:id="imagenVehiculo" fitHeight="90.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/not_found.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="95.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                     <children>
+                        <Label text="Marca:" />
+                        <TextField fx:id="marca" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="142.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                     <children>
+                        <Label text="Modelo" />
+                        <TextField fx:id="modelo" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="189.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                     <children>
+                        <Label text="Tipo motor:" />
+                        <ChoiceBox fx:id="tipoMotor" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="236.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                     <children>
+                        <Label text="Km:" />
+                        <TextField fx:id="kilometros" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="283.0" prefHeight="47.0" prefWidth="253.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="78.0" text="Matriculación:" />
+                        <DatePicker fx:id="fechaMatriculacion" editable="false" prefHeight="25.0" prefWidth="162.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <HBox alignment="CENTER" layoutX="-1.0" layoutY="-5.0" prefHeight="74.0" prefWidth="267.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="botonAceptar" mnemonicParsing="false" text="Aceptar" />
+                        <Button fx:id="botonLimpiar" mnemonicParsing="false" text="Limpiar" />
+                        <Button fx:id="botonCancelar" mnemonicParsing="false" text="Cancelar" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</Pane>
