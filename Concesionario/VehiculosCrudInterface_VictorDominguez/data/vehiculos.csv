@@ -1,0 +1,19 @@
+ID;Marca;Modelo;Tipo de motor;Kilometraje;Fecha de matriculación;Imagen
+0017BBP;Renault;Clio;Hibrido;20000;2020-05-20;icons/cocheMorado.png
+5114BNH;Peugot;C4;Electrico;65000;2014-05-12;icons/cocheAmarillo.png
+2032CCS;Toyota;Camry;Hibrido;15000;2023-01-04;icons/cocheAzulOscuro.png
+7803CFW;Ford;Focus;Electrico;70000;2013-11-03;icons/cocheAmarillo.png
+2556CRT;Ford;Focus;Electrico;80000;2012-11-03;icons/cocheAmarillo.png
+6548DFX;Citroen;C3;Diesel;120000;2009-06-01;icons/cocheAmarillo.png
+3600DSP;Toyota;Camry;Hibrido;0;2023-05-04;icons/cocheBlanco.png
+2226FDF;Citroen;C3;Hibrido;125000;2007-06-01;icons/cocheNegro.png
+1200GFF;Renault;Clio;Gasolina;250000;2010-05-20;icons/cocheRosa.png
+5148GJH;Renault;Megan;Electrico;20000;2021-12-20;icons/cocheAmarillo.png
+5552HJG;Ford;Mustang;Gasolina;100000;2012-12-15;icons/cocheVerde.png
+4851JKL;Renault;Megan;Hibrido;35000;2022-02-20;icons/cocheNegro.png
+9664JNB;Ford;Mustang;Electrico;10000;2022-12-15;icons/cocheVerde.png
+5489KKD;Peugeot;208;Diesel;89000;2011-09-21;icons/cocheRojo.png
+1295LDF;Peugot;C4;Diesel;50000;2018-05-19;icons/cocheAzul.png
+4486LMN;Peugeot;208;Gasolina;45000;2017-09-21;icons/cocheRojo.png
+8945LMN;Citroen;Berlingo;Diesel;40000;2016-01-03;icons/cocheAzul.png
+5984PKJ;Citroen;Berlingo;Gasolina;40000;2019-08-03;icons/cocheBlanco.png
