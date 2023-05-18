@@ -7,6 +7,6 @@ data class Vehicle(
     val marca: String,
     val modelo: String,
     val motor: Motor,
-    val fehcaMatriculacion: LocalDate,
+    val fechaMatriculacion: LocalDate,
     val imagenUrl: String? = null
 )

@@ -17,8 +17,9 @@ fun Vehicle.validate(): Result<Vehicle,VehicleError>{
         id < 0 -> Err(VehicleError.IdNoValido(id))
         marca.trim().isBlank() -> Err(VehicleError.MarcaNoValida(marca))
         modelo.trim().isBlank() -> Err(VehicleError.ModeloNoValido(modelo))
-        fehcaMatriculacion.isAfter(LocalDate.now()) -> Err(VehicleError.FechaNoValida(fehcaMatriculacion.toString()))
-        imagenUrl != null && !imagenUrl.matches(Regex(URL_REGEX)) -> Err(VehicleError.ImagenURLNoValida(imagenUrl))
+        fechaMatriculacion.isAfter(LocalDate.now()) -> Err(VehicleError.FechaNoValida(fechaMatriculacion.toString()))
+        imagenUrl == null -> Err(VehicleError.ImagenURLNoValida("null"))
+        !imagenUrl.matches(Regex(URL_REGEX)) && imagenUrl != "images/default.png" -> Err(VehicleError.ImagenURLNoValida(imagenUrl))
         else -> Ok(this)
     }
 }
@@ -31,7 +32,8 @@ fun VehicleDto.validate(): Result<VehicleDto, VehicleError>{
         motor.trim().isBlank() || !Motor.values().map { it.toString() }.contains(motor) -> Err(VehicleError.MotorNoValido(motor))
         fehcaMatriculacion.trim().isBlank() -> Err(VehicleError.FechaNoValida(fehcaMatriculacion))
         !fehcaMatriculacion.matches(Regex(DATE_REGEX)) -> Err(VehicleError.FechaNoValida(fehcaMatriculacion))
-        imagenUrl != null && !imagenUrl.matches(Regex(URL_REGEX)) -> Err(VehicleError.ImagenURLNoValida(imagenUrl))
+        imagenUrl == null -> Err(VehicleError.ImagenURLNoValida("null"))
+        !imagenUrl.matches(Regex(URL_REGEX)) && imagenUrl != "images/default.png" -> Err(VehicleError.ImagenURLNoValida(imagenUrl))
         else -> Ok(this)
     }
 }

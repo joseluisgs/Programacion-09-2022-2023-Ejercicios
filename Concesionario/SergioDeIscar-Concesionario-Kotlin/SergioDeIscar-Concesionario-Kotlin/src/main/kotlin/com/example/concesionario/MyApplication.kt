@@ -29,6 +29,11 @@ class MyApplication : Application() {
             280.0,
             350.0
         )
+        RoutesManager.addScreen(
+            Views.ACERCA_DE,
+            400.0,
+            150.0
+        )
         RoutesManager.changeScene(
             Views.HOME,
             "Concesionario"

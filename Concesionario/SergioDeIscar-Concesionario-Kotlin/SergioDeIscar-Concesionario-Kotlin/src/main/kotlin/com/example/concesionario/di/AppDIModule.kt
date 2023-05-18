@@ -10,7 +10,10 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import com.example.concesionario.services.database.DataBaseManager
 import com.example.concesionario.config.AppConfig
+import com.example.concesionario.services.storage.vehicle.VehicleFileCsv
 import com.example.concesionario.viewmodel.FormViewModel
+import org.koin.core.qualifier.named
+import org.koin.dsl.bind
 
 val AppDIModule = module {
     singleOf(::AppConfig)
@@ -18,9 +21,9 @@ val AppDIModule = module {
     singleOf(::VehicleRepoDataBase){
         bind<VehicleRepository>()
     }
-    singleOf(::VehicleFileJson){
-        bind<VehicleStorage>()
-    }
+    single(named("JSON")) { VehicleFileJson() } bind VehicleStorage::class
+    single(named("CSV")) { VehicleFileCsv() } bind VehicleStorage::class
     singleOf(::VehicleViewModel)
     singleOf(::FormViewModel)
 }
+

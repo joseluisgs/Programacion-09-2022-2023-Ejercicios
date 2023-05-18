@@ -1,5 +1,6 @@
 package com.example.concesionario.viewmodel
 
+import com.example.concesionario.errors.VehicleError
 import com.example.concesionario.mappers.toDto
 import com.example.concesionario.models.Motor
 import com.example.concesionario.models.Vehicle
@@ -7,17 +8,18 @@ import com.example.concesionario.repositories.vehicle.VehicleRepository
 import com.example.concesionario.services.storage.vehicle.VehicleStorage
 import javafx.beans.property.SimpleObjectProperty
 import com.example.concesionario.states.VehicleState
+import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.mapBoth
-import com.github.michaelbull.result.onFailure
-import com.github.michaelbull.result.onSuccess
 import javafx.beans.property.ObjectProperty
 import javafx.scene.control.Alert
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 
 class VehicleViewModel: KoinComponent {
     private val repository:VehicleRepository by inject()
-    private val storage:VehicleStorage by inject()
+    private val storageJSON:VehicleStorage by inject(named("JSON"))
+    private val storageCSV:VehicleStorage by inject(named("CSV"))
 
     val state: ObjectProperty<VehicleState> = SimpleObjectProperty(VehicleState())
     init {
@@ -71,29 +73,46 @@ class VehicleViewModel: KoinComponent {
     }
 
     fun importVehiclesFromJson() {
-        storage.loadAll().onSuccess {
-            repository.saveAll(it)
-            updateViewList()
-        }.onFailure {
-            Alert(Alert.AlertType.ERROR).apply {
-                title = "Error"
-                headerText = "Error al importar los vehiculos"
-                contentText = it.message
-            }.showAndWait()
-        }
+        importResult(storageJSON.loadAll())
     }
 
     fun importVehiclesFromCsv() {
-        println("Importar vehiculos desde CSV")
+        importResult(storageCSV.loadAll())
+    }
+
+    private fun importResult(result: Result<List<Vehicle>, VehicleError>){
+        result.mapBoth(
+            success = {
+                repository.saveAll(it)
+                updateViewList()
+            },
+            failure = {
+                Alert(Alert.AlertType.ERROR).apply {
+                    title = "Error"
+                    headerText = "Error al importar los vehiculos"
+                    contentText = it.message
+                }.showAndWait()
+            }
+        )
     }
 
     fun exportVehiclesToJson() {
-        storage.saveAll(repository.findAll().toList()).mapBoth(
+        val vehicle = repository.findAll().toList()
+        exportResult(storageJSON.saveAll(vehicle), vehicle.size)
+    }
+
+    fun exportVehiclesToCsv() {
+        val vehicles = repository.findAll().toList()
+        exportResult(storageCSV.saveAll(vehicles), vehicles.size)
+    }
+
+    private fun exportResult(result: Result<List<Vehicle>, VehicleError>, size: Int){
+        result.mapBoth(
             success = {
                 Alert(Alert.AlertType.INFORMATION).apply {
                     title = "Información"
                     headerText = "Vehiculos exportados correctamente"
-                    contentText = "Se han exportado ${it.size} vehiculos"
+                    contentText = "Se han exportado $size vehiculos"
                 }.showAndWait()
                 updateViewList()
             },
@@ -105,10 +124,6 @@ class VehicleViewModel: KoinComponent {
                 }.showAndWait()
             }
         )
-    }
-
-    fun exportVehiclesToCsv() {
-        println("Exportar vehiculos a CSV")
     }
 
     fun deleteVehicle() {

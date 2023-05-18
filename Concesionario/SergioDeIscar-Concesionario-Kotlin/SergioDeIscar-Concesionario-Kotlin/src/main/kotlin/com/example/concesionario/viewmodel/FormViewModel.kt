@@ -72,7 +72,7 @@ class FormViewModel: KoinComponent {
             modelo = state.value.modelo,
             motor = state.value.motor,
             fehcaMatriculacion = state.value.fechaMatriculacion,
-            imagenUrl = state.value.imagenUrl
+            imagenUrl = if (state.value.imagenUrl != "") state.value.imagenUrl else "images/default.png"
         ).validate().onFailure {
             Alert(Alert.AlertType.ERROR).apply {
                 this.title = "Datos incorrectos"

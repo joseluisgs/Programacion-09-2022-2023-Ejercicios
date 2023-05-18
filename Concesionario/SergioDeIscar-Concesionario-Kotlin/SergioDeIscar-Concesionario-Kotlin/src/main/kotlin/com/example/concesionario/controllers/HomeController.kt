@@ -14,6 +14,8 @@ import javafx.scene.image.ImageView
 import javafx.scene.layout.VBox
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import java.io.InputStream
+import java.net.URL
 
 
 class HomeController: KoinComponent {
@@ -107,13 +109,13 @@ class HomeController: KoinComponent {
             textMotor.text = newState.motor
             textMatriculacion.text = newState.fechaMatriculacion
             textNumCoches.text = newState.vehicles.count().toString()
-            //imageVehicle.image = Image(RoutesManager.getResourceAsStream(newState.imagenUrl))
             try {
-                imageVehicle.image = Image(newState.imagenUrl)
+                val inputStream: InputStream = URL(newState.imagenUrl).openStream()
+                imageVehicle.image = Image(inputStream)
                 imageVehicle.isCache = true
 
             } catch (e: Exception) {
-                imageVehicle.image = Image(RoutesManager.getResourceAsStream(newState.imagenUrl))
+                imageVehicle.image = Image(RoutesManager.getResourceAsStream("images/default.png"))
             }
             tableVehiculo.items = FXCollections.observableArrayList(newState.vehicles)
         }
@@ -122,7 +124,7 @@ class HomeController: KoinComponent {
     private fun initEvents() {
         // Menu
         menuAcercaDe.setOnAction {
-            RoutesManager.changeScene(
+            RoutesManager.openModal(
                 Views.ACERCA_DE,
                 "Acerca de"
             )
@@ -193,7 +195,7 @@ class HomeController: KoinComponent {
     }
 
     private fun choseTypeOfImport(){
-        val choices: List<String> = listOf("JSON", "CSV (EN FUTURAS VERSIONES)")
+        val choices: List<String> = listOf("JSON", "CSV")
 
         ChoiceDialog("JSON", choices).apply {
             title = "Importar"
@@ -208,7 +210,7 @@ class HomeController: KoinComponent {
     }
 
     private fun choseTypeOfExport(){
-        val choices: List<String> = listOf("JSON", "CSV (EN FUTURAS VERSIONES)")
+        val choices: List<String> = listOf("JSON", "CSV")
 
         ChoiceDialog("JSON", choices).apply {
             title = "Exportar"

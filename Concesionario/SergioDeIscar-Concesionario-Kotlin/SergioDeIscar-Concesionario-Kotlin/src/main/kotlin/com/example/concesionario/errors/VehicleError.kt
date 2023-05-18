@@ -13,6 +13,6 @@ sealed class VehicleError(val message: String) {
     class VehiculoNoActualizado(id: Long) : VehicleError("El vehiculo con id $id no se ha podido actualizar.")
     class VehiculoNoBorrado(id: Long) : VehicleError("El vehiculo con id $id no se ha podido borrar.")
 
-    class ImportJSONError : VehicleError("Error al importar el JSON.")
-    class ExportJSONError : VehicleError("Error al exportar el JSON.")
+    class ImportError(type: String) : VehicleError("Error al importar el $type.")
+    class ExportError(type: String) : VehicleError("Error al exportar el $type.")
 }

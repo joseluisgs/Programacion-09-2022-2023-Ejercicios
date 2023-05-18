@@ -10,7 +10,7 @@ fun Vehicle.toDto(): VehicleDto = VehicleDto(
     marca,
     modelo,
     motor.toString(),
-    fehcaMatriculacion.toString(),
+    fechaMatriculacion.toString(),
     imagenUrl
 )
 

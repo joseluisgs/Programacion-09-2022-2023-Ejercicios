@@ -23,20 +23,20 @@ class VehicleFileJson: VehicleStorage, KoinComponent {
 
     override fun saveAll(elements: List<Vehicle>): Result<List<Vehicle>, VehicleError> {
         val file = File(localPath)
-        if (file.exists() && !file.canWrite()) return Err(VehicleError.ExportJSONError())
+        if (file.exists() && !file.canWrite()) return Err(VehicleError.ExportError("JSON"))
         return try {
             val gson = GsonBuilder().setPrettyPrinting().create()
             val jsonString = gson.toJson(elements.map { it.toDto() })
             file.writeText(jsonString)
             Ok(elements)
         }catch (e: Exception){
-            Err(VehicleError.ExportJSONError())
+            Err(VehicleError.ExportError("JSON"))
         }
     }
 
     override fun loadAll(): Result<List<Vehicle>, VehicleError> {
         val file = File(localPath)
-        if (!file.exists() || !file.canRead()) return Err(VehicleError.ImportJSONError())
+        if (!file.exists() || !file.canRead()) return Err(VehicleError.ImportError("JSON"))
         val gson = GsonBuilder().setPrettyPrinting().create()
         val importType = object : TypeToken<List<VehicleDto>>() {}.type
         return try {
@@ -44,7 +44,7 @@ class VehicleFileJson: VehicleStorage, KoinComponent {
             val data = gson.fromJson<List<VehicleDto>>(jsonString, importType)
             Ok(data.map { it.toClass() })
         } catch (e: Exception) {
-            Err(VehicleError.ImportJSONError())
+            Err(VehicleError.ImportError("JSON"))
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.example.concesionario.controllers
 
-import com.example.concesionario.validators.DATE_REGEX
 import com.example.concesionario.viewmodel.FormViewModel
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
@@ -49,7 +48,10 @@ class FormController: KoinComponent {
             textMarca.text = newValue.marca
             textModelo.text = newValue.modelo
             comboMotor.value = newValue.motor
-            textImageUrl.text = newValue.imagenUrl
+            if (newValue.imagenUrl != "images/default.png")
+                textImageUrl.text = newValue.imagenUrl
+            else
+                textImageUrl.text = ""
             if (newValue.fechaMatriculacion != "")
                 dateMatriculacion.value = LocalDate.parse(newValue.fechaMatriculacion)
             else dateMatriculacion.value = null
@@ -74,9 +76,10 @@ class FormController: KoinComponent {
 
         // DatePicker
         dateMatriculacion.setOnAction {
-            if (dateMatriculacion.value.toString().matches(Regex(DATE_REGEX))){
+            if (dateMatriculacion.value == null)
+                viewModel.state.value = viewModel.state.value.copy(fechaMatriculacion = "")
+            else
                 viewModel.state.value = viewModel.state.value.copy(fechaMatriculacion = dateMatriculacion.value.toString())
-            }
         }
 
         // TextFields

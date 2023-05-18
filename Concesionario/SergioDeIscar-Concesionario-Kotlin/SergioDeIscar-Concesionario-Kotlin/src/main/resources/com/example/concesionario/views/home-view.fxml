@@ -27,8 +27,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Menu">
             <items>
-                  <MenuItem fx:id="menuImport" mnemonicParsing="false" text="Import data" />
-                  <MenuItem fx:id="menuExport" mnemonicParsing="false" text="Export data" />
+                  <MenuItem fx:id="menuImport" mnemonicParsing="false" text="Importar" />
+                  <MenuItem fx:id="menuExport" mnemonicParsing="false" text="Exportar" />
                   <MenuItem fx:id="menuAcercaDe" mnemonicParsing="false" text="Acerca De" />
               <MenuItem fx:id="menuExit" mnemonicParsing="false" text="Exit" />
             </items>
