@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jczhang.jczhangcocheskotlinjavafx.controller.CochesViewController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onAcercaDeAction" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox prefHeight="425.0" prefWidth="600.0">
+         <children>
+            <HBox prefHeight="442.0" prefWidth="600.0">
+               <children>
+                  <VBox prefHeight="411.0" prefWidth="367.0">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="88.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="157.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="90.0" text="Modelo:">
+                                 <padding>
+                                    <Insets left="15.0" top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="cocheBuscado" alignment="CENTER" prefHeight="25.0" prefWidth="144.0" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <ComboBox fx:id="tipoFiltrado" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets top="10.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                           </children>
+                        </GridPane>
+                        <Separator prefHeight="13.0" prefWidth="358.0">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Separator>
+                        <TableView fx:id="tablaCoches" prefHeight="360.0" prefWidth="339.0">
+                          <columns>
+                            <TableColumn fx:id="idTabla" prefWidth="99.0" text="ID" />
+                            <TableColumn fx:id="modeloTabla" prefWidth="124.0" text="Modelo" />
+                              <TableColumn fx:id="tipoMotorTabla" prefWidth="124.0" text="Tipo-Motor" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Separator>
+                  <AnchorPane prefHeight="411.0" prefWidth="261.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="47.0" prefHeight="30.0" prefWidth="129.0" text="Ficha Coche">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <GridPane layoutY="136.0" prefHeight="170.0" prefWidth="253.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="112.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="141.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="ID:">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Marca: " GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Modelo: " GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Tipo Motor: " GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Kilometros: " GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="100.0" text="Matriculación:" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idMostrar" disable="true" editable="false" GridPane.columnIndex="1" />
+                              <TextField fx:id="marcaMostrar" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="modeloMostrar" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="tipoMotorMostrar" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="kmMostrar" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <DatePicker fx:id="matriculationMostrar" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <ImageView fitHeight="104.0" fitWidth="100.0" layoutX="153.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/sinImagen.png" />
+                           </image>
+                        </ImageView>
+                        <Separator layoutX="-6.0" layoutY="330.0" prefHeight="6.0" prefWidth="297.0" />
+                        <Button layoutX="20.0" layoutY="356.0" mnemonicParsing="false" onAction="#onAddAction" prefHeight="25.0" prefWidth="59.0" text="Añadir" />
+                        <Button layoutX="108.0" layoutY="356.0" mnemonicParsing="false" onAction="#onEditarAction" prefHeight="25.0" prefWidth="59.0" text="Editar" />
+                        <Button layoutX="193.0" layoutY="356.0" mnemonicParsing="false" onAction="#onBorrarAction" prefHeight="25.0" prefWidth="59.0" text="Borrar" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
