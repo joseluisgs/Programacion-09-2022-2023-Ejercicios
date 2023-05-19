@@ -12,7 +12,6 @@ import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.VBox
 import org.koin.java.KoinJavaComponent.inject
-import kotlin.system.exitProcess
 
 class HomeControllerView {
     //val viewModel: ChinosViewModel by inject() // No me funciona

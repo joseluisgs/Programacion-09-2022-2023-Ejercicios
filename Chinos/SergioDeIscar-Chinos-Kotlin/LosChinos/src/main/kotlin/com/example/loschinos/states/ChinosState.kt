@@ -1,7 +1,6 @@
 package com.example.loschinos.states
 
 import javafx.beans.property.ObjectProperty
-import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleObjectProperty
 
 data class ChinosState(

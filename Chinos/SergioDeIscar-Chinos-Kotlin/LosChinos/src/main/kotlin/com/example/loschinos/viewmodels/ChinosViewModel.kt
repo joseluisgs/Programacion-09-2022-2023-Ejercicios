@@ -5,7 +5,6 @@ import com.example.loschinos.states.ChinosState
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
-import javafx.beans.property.SimpleObjectProperty
 
 class ChinosViewModel {
     val state = ChinosState()
