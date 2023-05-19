@@ -5,6 +5,7 @@ sealed class VehiculeError(val message: String) {
         class SaveJson(message: String) : AlumnoError(message)*/
 
     class IdInvalid(message: String) : VehiculeError(message)
+    class MatriculaInvalid(message: String) : VehiculeError(message)
     class MarcaInvalid(message: String) : VehiculeError(message)
     class ModeloInvalid(message: String) : VehiculeError(message)
     class TypeMotorInvalid(message: String) : VehiculeError(message)
