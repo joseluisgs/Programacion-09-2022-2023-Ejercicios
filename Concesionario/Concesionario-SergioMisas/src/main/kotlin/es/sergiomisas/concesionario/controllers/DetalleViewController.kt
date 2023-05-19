@@ -5,6 +5,7 @@ import es.sergiomisas.concesionario.errors.CocheError
 import es.sergiomisas.concesionario.models.Coche
 import es.sergiomisas.concesionario.routes.RoutesManager
 import es.sergiomisas.concesionario.viewmodels.ConcesionarioViewModel
+import javafx.collections.FXCollections
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.control.Alert.AlertType
@@ -47,7 +48,7 @@ class DetalleViewController : KoinComponent {
     private lateinit var textCocheModelo: TextField
 
     @FXML
-    private lateinit var textCocheTipoMotor: TextField
+    private lateinit var comboBoxTipoMotor: ComboBox<String>
     
     @FXML
     private lateinit var dateCocheFechaMatriculacion: DatePicker
@@ -112,8 +113,15 @@ class DetalleViewController : KoinComponent {
             textCocheMarca.text = viewModel.state.value.cocheSeleccionado.marca
             textCocheModelo.text = viewModel.state.value.cocheSeleccionado.modelo
             dateCocheFechaMatriculacion.value = viewModel.state.value.cocheSeleccionado.fechaMatriculacion
-            textCocheTipoMotor.text = viewModel.state.value.cocheSeleccionado.tipoMotor
+            comboBoxTipoMotor.value = viewModel.state.value.typesMotor.toString()
             imagecoche.image = viewModel.state.value.cocheSeleccionado.imagen
+        }
+
+        if (viewModel.state.value.tipoOperacion == ConcesionarioViewModel.TipoOperacion.NUEVO){
+            // comboBoxe
+            comboBoxTipoMotor.items = FXCollections.observableArrayList(Coche.TipoMotor.values().drop(1).map { it.name })
+            comboBoxTipoMotor.selectionModel.selectFirst()
+
         }
     }
 
@@ -196,7 +204,7 @@ class DetalleViewController : KoinComponent {
         textCocheMarca.text = ""
         textCocheModelo.text = ""
         dateCocheFechaMatriculacion.value = null
-        textCocheTipoMotor.text = ""
+        comboBoxTipoMotor.value = ""
         imagecoche.image = viewModel.getDefautltImage()
     }
 
@@ -217,7 +225,7 @@ class DetalleViewController : KoinComponent {
         if (dateCocheFechaMatriculacion.value == null || dateCocheFechaMatriculacion.value.isAfter(LocalDate.now())) {
             return Err(CocheError.ValidationProblem("Fecha de matriculacion no puede estar vacía y debe ser anterior a hoy"))
         }
-        if (textCocheTipoMotor.text !in Coche.TipoMotor.values().map { it.name } || textCocheTipoMotor.text == "TODOS") {
+        if (comboBoxTipoMotor.value.toString() !in Coche.TipoMotor.values().map { it.name } || comboBoxTipoMotor.value.toString() == "TODOS") {
             return Err(CocheError.ValidationProblem("El tipo de motor no es válido"))
         }
         return Ok(
@@ -227,7 +235,7 @@ class DetalleViewController : KoinComponent {
                 marca = textCocheMarca.text,
                 modelo = textCocheModelo.text,
                 fechaMatriculacion = dateCocheFechaMatriculacion.value,
-                tipoMotor = textCocheTipoMotor.text,
+                tipoMotor = comboBoxTipoMotor.value.toString(),
                 imagen = imagecoche.image,
                 fileImage = imageFilecoche
             )

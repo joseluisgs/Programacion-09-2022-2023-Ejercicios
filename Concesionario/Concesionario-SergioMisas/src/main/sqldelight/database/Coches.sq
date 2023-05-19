@@ -1,7 +1,7 @@
 -- Tabla de Coches
 CREATE TABLE IF NOT EXISTS CocheEntity (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    matricula  TEXT NOT NULL,
+    matricula  TEXT NOT NULL UNIQUE,
     marca  TEXT  NOT NULL,
     modelo TEXT NOT NULL,
     tipoMotor TEXT NOT NULL,
@@ -25,6 +25,9 @@ SELECT * FROM CocheEntity ORDER BY matricula ASC;
 
 selectById:
 SELECT * FROM CocheEntity WHERE id = ?;
+
+selectByMatricula:
+SELECT * FROM CocheEntity WHERE matricula = ?;
 
 selectLastInserted:
 SELECT * FROM CocheEntity WHERE id = last_insert_rowid();
