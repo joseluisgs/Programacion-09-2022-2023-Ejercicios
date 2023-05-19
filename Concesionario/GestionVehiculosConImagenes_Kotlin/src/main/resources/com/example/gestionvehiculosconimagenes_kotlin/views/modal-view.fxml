@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="416.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="131.0" prefWidth="298.0">
+               <children>
+                  <Label text="Un poco de informacón sobre ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="la aplicación de gestión de vehículos">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <ImageView fitHeight="119.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/coche-modal-view.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Separator prefHeight="9.0" prefWidth="600.0" style="-fx-background-color: black;" />
+      <HBox alignment="TOP_CENTER" prefHeight="227.0" prefWidth="600.0" spacing="60.0">
+         <children>
+            <Label text="Info:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextArea editable="false" prefHeight="227.0" prefWidth="307.0" text="Esta aplicación consta de varias partes:&#10;· Ventana principal:&#10;    Muestra una tabla con los distintos vehículos,&#10;   estos se pueden filtrar con el uso de los campos&#10;   situados encima de la tabla y además, se puede&#10;   seleccionar un vehículo, mostrandose toda su&#10;   información en la parte derecha.&#10;   &#10;   En la parte derecha podemos añadir un nuevo &#10;   vehículo, e inclusive, editar o eliminar un vehículo &#10;   seleccionado.&#10;&#10;   Hay otra opciones, como abrir esta ventana &#10;   pulsando el botón de la barra de menú, o incluso&#10;   una opción de salir en esa misma barra.&#10;&#10;·Ventana secundaria: es la ventana que se abrira &#10; cuando seleccionemos añadir o editar un vehículo&#10;   Dependiendo de la opción seleccionada (añadir&#10;   o editar), cuando le demos al botón aceptar,&#10;   pues sucedera la acción que se haya seleccionado.&#10;   &#10;   Independientemente de la acción, tendremos unos&#10;   campos de datos de vehículo, los podremos editar&#10;   como queramos y darle aceptar, sin embargo,&#10;   en caso de que algún dato no sea válido, se&#10;   cancelará la operación.&#10;&#10;   Hay un botón limpiar, este pondrá todos los&#10;   editables al un valor por defecto, vacio.&#10; &#10;   Hay un botón cancelar, hace lo mismo que pulsar&#10;   la cruz para cerrar la ventana. Cancela la operación&#10;   sea donde sea que nos encontremos en los pasos&#10;   de la operación.&#10;&#10;   Por último, si se pulsa sobre la imagen, se&#10;   desplegará un apartado para poder seleccionar&#10;   una imagen al gusto del usuario para asociar al&#10;   vehículo añadido o modificado. Solo se permite&#10;   formato *.png, *.jpg o *.jpeg.   " />
+         </children>
+      </HBox>
+   </children>
+</VBox>
