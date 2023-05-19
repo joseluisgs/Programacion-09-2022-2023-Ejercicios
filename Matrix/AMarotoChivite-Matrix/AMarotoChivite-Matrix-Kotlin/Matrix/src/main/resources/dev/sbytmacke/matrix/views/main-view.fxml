@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="501.0" prefWidth="521.0"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      fx:controller="dev.sbytmacke.matrix.controllers.SimulationViewController">
+    <MenuBar VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="Archivo">
+            <MenuItem fx:id="menuSalir" mnemonicParsing="false" text="Salir">
+                <graphic>
+                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../icons/exit.png"/>
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
+            <MenuItem fx:id="menuAcercaDe" mnemonicParsing="false" text="Acerca de...">
+                <graphic>
+                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../icons/about.png"/>
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+        </Menu>
+    </MenuBar>
+    <AnchorPane prefHeight="617.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
+        <SplitPane dividerPositions="0.2556480380499406" orientation="VERTICAL" prefHeight="563.0" prefWidth="613.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="134.0" prefWidth="527.0">
+                    <children>
+                        <HBox alignment="CENTER" layoutX="119.0" layoutY="14.0" prefHeight="73.0" prefWidth="371.0">
+                            <Label prefWidth="222.0" text="Matrix: The Choosen One">
+                                <HBox.margin>
+                                    <Insets left="10.0"/>
+                                </HBox.margin>
+                                <font>
+                                    <Font name="System Bold" size="18.0"/>
+                                </font>
+                            </Label>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="136.0" layoutY="70.0" prefHeight="53.0" prefWidth="338.0">
+                            <children>
+                                <Button fx:id="botonComenzar" mnemonicParsing="false" text="Comenzar"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="341.0" prefWidth="757.0">
+                    <children>
+                        <VBox prefHeight="414.0" prefWidth="613.0" spacing="5.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                            <Label text="Operación:"/>
+                            <TextArea fx:id="textOperacion" editable="false" prefHeight="107.0" prefWidth="443.0">
+                                <font>
+                                    <Font name="Andale Mono" size="11.0"/>
+                                </font>
+                            </TextArea>
+                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="288.0" spacing="5.0">
+                                <Label text="Personajes generados"/>
+                                <TextField fx:id="textGenerateChar" editable="false" prefHeight="26.0"
+                                           prefWidth="89.0"/>
+                            </HBox>
+                            <Label text="Cuadrante:"/>
+                            <TextArea fx:id="textCuadrante" editable="false" prefHeight="195.0" prefWidth="593.0">
+                                <font>
+                                    <Font name="Andale Mono" size="13.0"/>
+                                </font>
+                            </TextArea>
+                            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="457.0" spacing="5.0">
+                                <Label text="Tiempo:"/>
+                                <TextField fx:id="textTiempo" editable="false" prefHeight="26.0" prefWidth="88.0"/>
+                            </HBox>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </AnchorPane>
+</VBox>
