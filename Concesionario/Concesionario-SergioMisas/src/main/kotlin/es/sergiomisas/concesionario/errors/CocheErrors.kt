@@ -11,4 +11,5 @@ sealed class CocheError(val message: String) {
     class NotFound(message: String) : CocheError(message)
     class ExportZip(message: String) : CocheError(message)
     class ImportZip(message: String) : CocheError(message)
+    class MatriculaExists(message: String) : CocheError(message)
 }

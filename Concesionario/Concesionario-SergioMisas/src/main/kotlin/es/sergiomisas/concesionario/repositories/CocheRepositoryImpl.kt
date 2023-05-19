@@ -78,4 +78,9 @@ class CocheRepositoryImpl(
         logger.debug { "saveAll: $coches" }
         return coches.map { save(it) }
     }
+
+    override fun findByMatricula(matricula: String): Coche? {
+        logger.debug { "findByMatricula: $matricula" }
+        return database.selectByMatricula(matricula).executeAsOneOrNull()?.toModel()
+    }
 }
