@@ -44,13 +44,18 @@ class StorageImagesImpl(
     }
 
     override fun loadImage(fileName: String): Result<File, Unit> {
-        logger.debug { "Se carga la imagen de nombre $fileName" }
-        val file = File(config.APP_IMAGES_PATH+File.separator+fileName)
-        return if(file.exists()){
-            Ok(file)
+        if(fileName != "") {
+            logger.debug { "Se carga la imagen de nombre $fileName" }
+            val file = File(config.APP_IMAGES_PATH + File.separator + fileName)
+            return if (file.exists()) {
+                Ok(file)
+            } else {
+                Err(Unit)
+            }
         }else{
-            Err(Unit)
+            logger.debug { """No se puede cargar una imagen de nombre: "".""" }
         }
+        return Err(Unit)
     }
 
     override fun deteleImage(fileName: File): Result<Unit, VehiculoError> {

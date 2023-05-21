@@ -20,7 +20,6 @@ import javafx.stage.FileChooser
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.koin.core.qualifier.named
 import java.io.File
 import java.time.LocalDate
 
@@ -58,6 +57,9 @@ class VehiculosDetallesController: KoinComponent {
     private lateinit var imagenVehiculo: ImageView
 
     @FXML
+    private lateinit var matricula: TextField
+
+    @FXML
     private lateinit var idVehiculo: TextField
 
     private var imageFile: File? = null
@@ -65,7 +67,7 @@ class VehiculosDetallesController: KoinComponent {
     @FXML
     fun initialize(){
 
-        //Para que en el campo de la fecha no se pueda mas que seleccionar
+        //Para que en el campo de la fecha no se pueda mas que seleccionar con el picker
         fechaMatriculacion.isEditable = false
 
         initBinds()
@@ -102,6 +104,7 @@ class VehiculosDetallesController: KoinComponent {
         if (viewModel.state.value.tipoOperacion == TipoOperacion.EDITAR) {
             idVehiculo.text =
                 if(viewModel.state.value.vehiculoReference.id == Vehiculo.VEHICULO_ID) "" else viewModel.state.value.vehiculoReference.id.toString()
+            matricula.text = viewModel.state.value.vehiculoReference.matricula
             marca.text = viewModel.state.value.vehiculoReference.marca
             modelo.text = viewModel.state.value.vehiculoReference.modelo
             kilometros.text = viewModel.state.value.vehiculoReference.km.toString()
@@ -147,6 +150,8 @@ class VehiculosDetallesController: KoinComponent {
                         headerText = "El vehículo no pudo ser creado"
                         contentText = it.message
                     }.showAndWait()
+                    //Estos return son para que no salga de una si algo ha fallado
+                    return
                 }
         }else{
             logger.debug { "Llevamos a cabo la opción de editar un vehículo" }
@@ -167,6 +172,8 @@ class VehiculosDetallesController: KoinComponent {
                         headerText = "El vehículo no pudo ser editado"
                         contentText = it.message
                     }.showAndWait()
+                    //Estos return son para que no salga de una si algo ha fallado
+                    return
                 }
         }
         RoutesManager.activeStage.close()
@@ -175,6 +182,14 @@ class VehiculosDetallesController: KoinComponent {
     private fun generatedVehiculo(): Result<VehiculoReference, VehiculoError> {
         logger.debug { "Generamos un vehículo según los campos que tenemos, tras validar todo" }
 
+
+        require(!viewModel.state.value.vehiculos.filter { it.id != (idVehiculo.text.toLongOrNull() ?: Vehiculo.VEHICULO_ID) }.map { it.matricula }.contains(matricula.text)){
+            return  Err(VehiculoError.MatriculaYaExiste(matricula.text))
+        }
+        val regexMatricula = Regex("[A-Z]{4}[0-9]{3}")
+        require(matricula.text.matches(regexMatricula)){
+            return Err(VehiculoError.MatriculaNoValida(matricula.text))
+        }
         require(marca.text.isNotEmpty()){
             return Err(VehiculoError.MarcaNoValida(marca.text))
         }
@@ -188,11 +203,12 @@ class VehiculosDetallesController: KoinComponent {
         require(km >= 0.0){
             return Err(VehiculoError.KilometroNoValido(km.toString()))
         }
-        require(fechaMatriculacion.value.isBefore(LocalDate.now())){
+        if(fechaMatriculacion.value.isAfter(LocalDate.now())){
             return Err(VehiculoError.FechaMatriculacionNoValida(fechaMatriculacion.value))
         }
         return Ok(VehiculoReference(
             id = idVehiculo.text.toLongOrNull()?:Vehiculo.VEHICULO_ID,
+            matricula = matricula.text,
             marca = marca.text,
             modelo = modelo.text,
             tipoMotor = tipoMotor.selectionModel.selectedItem.getTipoMotor(),
@@ -223,9 +239,10 @@ class VehiculosDetallesController: KoinComponent {
     private fun onClickLimpiarAction() {
         logger.debug { "Limpiamos los datos de todos los campos" }
         imagenVehiculo.image = Image(getResourceAsStream(TipoMotor.OTRO.imagePath))
+        matricula.text = ""
         marca.text = ""
         modelo.text = ""
-        tipoMotor.selectionModel.selectFirst()
+        tipoMotor.selectionModel.selectLast()
         kilometros.text = ""
         fechaMatriculacion.value = null
     }

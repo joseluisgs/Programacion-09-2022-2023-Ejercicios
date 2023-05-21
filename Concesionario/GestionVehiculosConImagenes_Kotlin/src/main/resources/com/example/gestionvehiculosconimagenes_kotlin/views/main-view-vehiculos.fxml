@@ -8,20 +8,18 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.gestionvehiculosconimagenes_kotlin.controllers.VehiculosController">
    <children>
-      <MenuBar>
+      <MenuBar prefHeight="25.0" prefWidth="653.0">
         <menus>
           <Menu mnemonicParsing="false" text="App">
             <items>
@@ -35,102 +33,95 @@
           </Menu>
         </menus>
       </MenuBar>
-      <SplitPane dividerPositions="0.5986622073578596" prefHeight="451.0" prefWidth="600.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <HBox prefHeight="424.0" prefWidth="659.0">
+         <children>
+            <VBox prefHeight="417.0" prefWidth="389.0">
                <children>
-                  <VBox prefHeight="401.0" prefWidth="390.0">
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="390.0" spacing="10.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="390.0" spacing="10.0">
+                        <Label text="Marca-Modelo" />
+                        <TextField fx:id="textFieldMarcaModelo" />
+                        <ComboBox fx:id="comboBox" prefHeight="25.0" prefWidth="137.0" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="tablaVehiculo" prefHeight="373.0" prefWidth="389.0">
+                     <columns>
+                        <TableColumn fx:id="columnaIdVehiculo" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="columnaMarcaModelo" prefWidth="196.0" text="MARCA-MODELO" />
+                        <TableColumn fx:id="columnaTipoMotor" prefWidth="116.0" text="Tipo Motor" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="403.0" prefWidth="262.0">
+               <children>
+                  <VBox prefHeight="365.0" prefWidth="310.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="261.0" spacing="10.0">
                            <children>
-                              <Label text="Marca-Modelo" />
-                              <TextField fx:id="textFieldMarcaModelo" />
-                              <ComboBox fx:id="comboBox" prefHeight="25.0" prefWidth="137.0" />
+                              <Label text="ID:" />
+                              <TextField fx:id="idVehiculo" disable="true" prefHeight="25.0" prefWidth="62.0" />
+                              <ImageView fx:id="imagenVehiculo" fitHeight="90.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/not_found.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
-                        <TableView fx:id="tablaVehiculo" prefHeight="371.0" prefWidth="390.0">
-                          <columns>
-                            <TableColumn fx:id="columnaIdVehiculo" prefWidth="75.0" text="ID" />
-                              <TableColumn fx:id="columnaMarcaModelo" prefWidth="196.0" text="MARCA-MODELO" />
-                            <TableColumn fx:id="columnaTipoMotor" prefWidth="118.0" text="Tipo Motor" />
-                          </columns>
-                        </TableView>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                           <children>
+                              <Label text="Matricula:" />
+                              <TextField fx:id="matricula" disable="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                           <children>
+                              <Label text="Marca:" />
+                              <TextField fx:id="marca" disable="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                           <children>
+                              <Label text="Modelo" />
+                              <TextField fx:id="modelo" disable="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                           <children>
+                              <Label text="Tipo motor:" />
+                              <TextField fx:id="tipoMotor" disable="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
+                           <children>
+                              <Label text="Km:" />
+                              <TextField fx:id="kilometros" disable="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="253.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="78.0" text="Matriculación:" />
+                              <DatePicker fx:id="fechaMatriculacion" disable="true" prefHeight="25.0" prefWidth="162.0" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-               </children>
-               <opaqueInsets>
-                  <Insets left="5.0" />
-               </opaqueInsets>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="401.0" prefWidth="268.0">
-               <children>
-                  <VBox prefHeight="401.0" prefWidth="267.0">
+                  <HBox alignment="CENTER" prefHeight="56.0" prefWidth="261.0" spacing="20.0" style="-fx-border-style: solid; -fx-border-radius: 10px;">
                      <children>
-                        <SplitPane dividerPositions="0.8345864661654135" orientation="VERTICAL" prefHeight="415.0" prefWidth="267.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="96.0" prefWidth="260.0" spacing="10.0">
-                                       <children>
-                                          <Label text="ID:" />
-                                          <TextField fx:id="idVehiculo" disable="true" prefHeight="25.0" prefWidth="62.0" />
-                                          <ImageView fx:id="imagenVehiculo" fitHeight="90.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../images/not_found.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="95.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Marca:" />
-                                          <TextField fx:id="marca" disable="true" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="142.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Modelo" />
-                                          <TextField fx:id="modelo" disable="true" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="189.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Tipo motor:" />
-                                          <TextField fx:id="tipoMotor" disable="true" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="236.0" prefHeight="47.0" prefWidth="237.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Km:" />
-                                          <TextField fx:id="kilometros" disable="true" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="283.0" prefHeight="47.0" prefWidth="253.0" spacing="10.0">
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="78.0" text="Matriculación:" />
-                                          <DatePicker fx:id="fechaMatriculacion" disable="true" prefHeight="25.0" prefWidth="162.0" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <HBox alignment="CENTER" layoutX="-1.0" layoutY="-5.0" prefHeight="74.0" prefWidth="267.0" spacing="20.0">
-                                       <children>
-                                          <Button fx:id="botonAñadir" mnemonicParsing="false" text="Añadir" />
-                                          <Button fx:id="botonEditar" mnemonicParsing="false" text="Editar" />
-                                          <Button fx:id="botonBorrar" mnemonicParsing="false" text="Borrar" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
+                        <Button fx:id="botonAñadir" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="botonEditar" mnemonicParsing="false" text="Editar" />
+                        <Button fx:id="botonBorrar" mnemonicParsing="false" text="Borrar" />
                      </children>
-                  </VBox>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </VBox>

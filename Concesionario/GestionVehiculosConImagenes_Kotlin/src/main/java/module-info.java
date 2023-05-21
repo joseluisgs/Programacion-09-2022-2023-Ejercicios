@@ -3,8 +3,6 @@ module com.example.gestionvehiculosconimagenes_kotlin {
     requires javafx.fxml;
     requires kotlin.stdlib;
 
-
-
     // Logger
     requires io.github.microutils.kotlinlogging;
     requires koin.logger.slf4j;
