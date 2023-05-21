@@ -147,12 +147,17 @@ class ConcesionarioViewModel(
                         newCoche = newCoche.copy(imagen = it.name)
                     }
                 }
-                val new = repository.save(newCoche)
-                // Actualizamos la lista
-                // Podriamos cargar del repositorio otra vez, si fuera concurente o
-                // conectada a un servidor remoto debería hacerlo así
-                updateState(state.value.coches + new)
-                Ok(new)
+                // Compruebo que no existe la matricula
+                repository.findByMatricula(newCoche.matricula)?.let {
+                    return@andThen Err(CocheError.MatriculaExists("La matricula ${newCoche.matricula} ya existe"))
+                } ?: run {
+                    val new = repository.save(newCoche)
+                    // Actualizamos la lista
+                    // Podriamos cargar del repositorio otra vez, si fuera concurente o
+                    // conectada a un servidor remoto debería hacerlo así
+                    updateState(state.value.coches + new)
+                    Ok(new)
+                }
             }
     }
 
@@ -174,6 +179,10 @@ class ConcesionarioViewModel(
                         storage.updateImage(fileImageTemp, newFileImage)
                     }
                 }
+
+                if (repository.findByMatricula(updatedCoche.matricula)?.id != updatedCoche.id)
+                    return@andThen Err(CocheError.MatriculaExists("La matricula ${updatedCoche.matricula} ya existe"))
+
                 val updated = repository.save(updatedCoche)
                 // Actualizamos la lista
                 // Podriamos cargar del repositorio otra vez, si fuera concurente o

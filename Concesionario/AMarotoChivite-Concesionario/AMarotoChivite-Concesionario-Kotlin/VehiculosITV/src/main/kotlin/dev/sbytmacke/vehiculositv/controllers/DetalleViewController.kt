@@ -174,12 +174,19 @@ class DetalleViewController : KoinComponent {
         limpiarForm()
     }
 
-
-    // Lo puedo hacer aquí o en mi validador en el viewModel
     private fun validateFormNotNull(): Result<VehiculeDetailsState, VehiculeError> {
         logger.debug { "validateForm" }
 
         // Validacion del formulario
+        if (textVehiculeMatricule.text.isNullOrEmpty()) {
+            return Err(VehiculeError.EmptyField())
+        }
+
+        val matriculeDuplicate = viewModel.stateVehicule.value.vehicules.find { it!!.matricule == textVehiculeMatricule.text  }
+        if (matriculeDuplicate != null) {
+            return Err(VehiculeError.MatriculaInvalid("La matrícula ${textVehiculeMatricule.text} ya existe!"))
+        }
+
         if (textVehiculeMatricule.text.isNullOrEmpty()) {
             return Err(VehiculeError.EmptyField())
         }

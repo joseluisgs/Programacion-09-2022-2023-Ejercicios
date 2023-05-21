@@ -39,6 +39,14 @@
 
     ![](images/filtros.png)
 
+  - Matricula existente al crear un nuevo vehículo
+
+    ![](images/matriculaExist.png)
+
+  - Seleccion del tipo de vehículo filtrada a solo elegir una
+
+    ![](images/tipoVehiculoFiltro.png)
+
   2. La vista de "Acerca de" donde hay información relevante del desarrollador, se introduce en ella mediante el menú superior.
 
      ![](images/acercaDe.png)

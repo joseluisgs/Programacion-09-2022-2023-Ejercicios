@@ -9,4 +9,5 @@ interface CocheRepository {
     fun deleteById(id: Long)
     fun deleteAll()
     fun saveAll(coches: List<Coche>): List<Coche>
+    fun findByMatricula(matricula: String): Coche?
 }
