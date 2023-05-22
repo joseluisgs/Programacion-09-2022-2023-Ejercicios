@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="434.0" prefWidth="419.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.kevin.vehiculosfx.controllers.DetailsController">
+   <children>
+      <AnchorPane prefHeight="450.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="15.0" layoutY="14.0" prefHeight="54.0" prefWidth="204.0" text="Detalles Vehiculo">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="111.0" text="ID" />
+            <Label layoutX="17.0" layoutY="150.0" text="Matricula" />
+            <Label layoutX="17.0" layoutY="188.0" text="Modelo" />
+            <Label layoutX="17.0" layoutY="223.0" text="Marca" />
+            <Label layoutX="17.0" layoutY="262.0" text="Motor" />
+            <Label layoutX="17.0" layoutY="299.0" text="Kilometros" />
+            <Label layoutX="18.0" layoutY="334.0" text="Fecha Matriculacion" />
+            <TextField fx:id="textIdDetalle" layoutX="150.0" layoutY="108.0" prefHeight="26.0" prefWidth="246.0" />
+            <TextField fx:id="textIdMatricula" layoutX="150.0" layoutY="148.0" prefHeight="26.0" prefWidth="246.0" />
+            <TextField fx:id="textIdModelo" layoutX="150.0" layoutY="183.0" prefHeight="26.0" prefWidth="246.0" />
+            <TextField fx:id="textIdMarca" layoutX="150.0" layoutY="220.0" prefHeight="26.0" prefWidth="246.0" />
+            <TextField fx:id="textIdKm" layoutX="150.0" layoutY="294.0" prefHeight="26.0" prefWidth="246.0" />
+            <Button fx:id="botonDetalleGuardar" layoutX="68.0" layoutY="383.0" mnemonicParsing="false" text="Guardar" />
+            <Button fx:id="botonLimpiar" layoutX="184.0" layoutY="383.0" mnemonicParsing="false" text="Limpiar" />
+            <Button fx:id="botonCancelar" layoutX="297.0" layoutY="383.0" mnemonicParsing="false" text="Cancelar" />
+            <ImageView fx:id="imagenDetalle" fitHeight="98.0" fitWidth="113.0" layoutX="281.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+            <ComboBox fx:id="comboMotor" layoutX="150.0" layoutY="257.0" prefHeight="26.0" prefWidth="246.0" />
+            <DatePicker fx:id="pickerFecha" layoutX="150.0" layoutY="331.0" prefHeight="26.0" prefWidth="246.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

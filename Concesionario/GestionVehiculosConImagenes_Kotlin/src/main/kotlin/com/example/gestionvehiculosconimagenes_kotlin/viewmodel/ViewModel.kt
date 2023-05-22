@@ -37,14 +37,7 @@ class ViewModel(
     private fun loadTipoMotores() {
         logger.debug { "Cargamos los tipos de motores que hay" }
         state.value = state.value.copy(
-            comboBoxOptions = listOf(
-                TipoMotor.CUALQUIERA.toString(),
-                TipoMotor.ELECTRICO.toString(),
-                TipoMotor.HIBRIDO.toString(),
-                TipoMotor.GASOLINA.toString(),
-                TipoMotor.DIESEL.toString(),
-                TipoMotor.OTRO.toString()
-            )
+            comboBoxOptions = TipoMotor.values().map { it.toString() }
         )
     }
 
@@ -120,14 +113,14 @@ class ViewModel(
         logger.debug { "Filtramos la tabla según el tipo de motor: $tipoMotor y la marca modelo: $marcaModelo" }
         return state.value.vehiculos
             .filter {
-                if(tipoMotor != TipoMotor.CUALQUIERA){
-                    it.tipoMotor == tipoMotor
-                }else{
-                    true
-                }
+                it.marcaModelo.lowercase().contains(marcaModelo.lowercase())
             }
             .filter {
-                it.marcaModelo.lowercase().contains(marcaModelo.lowercase())
+                if (tipoMotor == TipoMotor.CUALQUIERA) {
+                    true
+                } else {
+                    it.tipoMotor == tipoMotor
+                }
             }
     }
 
@@ -178,6 +171,7 @@ enum class TipoOperacion {
 
 data class VehiculoReference(
     val id: Long = Vehiculo.VEHICULO_ID,
+    val matricula: String = "",
     val marca: String = "",
     val modelo: String = "",
     val tipoMotor: TipoMotor? = null,

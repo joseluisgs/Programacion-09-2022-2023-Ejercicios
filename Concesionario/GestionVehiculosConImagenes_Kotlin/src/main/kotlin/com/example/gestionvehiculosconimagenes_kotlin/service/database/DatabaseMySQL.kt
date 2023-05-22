@@ -2,18 +2,18 @@ package com.example.gestionvehiculosconimagenes_kotlin.service.database
 
 import com.example.gestionvehiculosconimagenes_kotlin.config.ConfigApp
 import com.example.gestionvehiculosconimagenes_kotlin.mapper.getTipoMotor
+import com.example.gestionvehiculosconimagenes_kotlin.mapper.toLocalDate
 import com.example.gestionvehiculosconimagenes_kotlin.model.Vehiculo
 import mu.KotlinLogging
 import java.sql.DriverManager
 import java.sql.Statement
-import java.time.LocalDate
 
 private val logger = KotlinLogging.logger {  }
 
 class DatabaseMySQL(
     private val config: ConfigApp
 ) {
-    val connection get() = DriverManager.getConnection(config.APP_URL, config.APP_USER, "")
+    val connection get() = DriverManager.getConnection(config.APP_URL, config.APP_USER, config.APP_PASSWORD)
 
     fun selectAllVehiculos(): List<Vehiculo> {
         logger.debug { "Tomamos todos los vehículos de la BBDD" }
@@ -27,11 +27,12 @@ class DatabaseMySQL(
                     vehiculos.add(
                         Vehiculo(
                             id = result.getLong("id_vehiculo"),
+                            matricula = result.getString("matricula"),
                             marca = result.getString("marca"),
                             modelo = result.getString("modelo"),
                             tipoMotor = result.getString("tipo_motor").getTipoMotor(),
                             km = result.getDouble("kilometros"),
-                            fechaMatriculacion = LocalDate.parse(result.getString("fecha_matriculacion")),
+                            fechaMatriculacion = result.getString("fecha_matriculacion").toLocalDate(),
                             foto = result.getString("foto")
                         )
                     )
@@ -56,11 +57,12 @@ class DatabaseMySQL(
                     vehiculo =
                         Vehiculo(
                             id = result.getLong("id_vehiculo"),
+                            matricula = result.getString("matricula"),
                             marca = result.getString("marca"),
                             modelo = result.getString("modelo"),
                             tipoMotor = result.getString("tipo_motor").getTipoMotor(),
                             km = result.getDouble("kilometros"),
-                            fechaMatriculacion = LocalDate.parse(result.getString("fecha_matriculacion")),
+                            fechaMatriculacion = result.getString("fecha_matriculacion").toLocalDate(),
                             foto = result.getString("foto")
                         )
                 }
@@ -73,15 +75,16 @@ class DatabaseMySQL(
         logger.debug { "Se inserta un nuevo vehículo en la BBDD" }
         var myId = 0L
         connection.use {
-            val sql = "INSERT INTO vehiculo VALUES (null,?,?,?,?,?,?);"
+            val sql = "INSERT INTO vehiculo VALUES (null, ?,?,?,?,?,?,?);"
 
             it.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS).use{stm ->
-                stm.setString(1, vehiculo.marca)
-                stm.setString(2, vehiculo.modelo)
-                stm.setString(3, vehiculo.tipoMotorText)
-                stm.setDouble(4, vehiculo.km)
-                stm.setString(5, vehiculo.fechaMatriculacion.toString())
-                stm.setString(6, vehiculo.foto)
+                stm.setString(1, vehiculo.matricula)
+                stm.setString(2, vehiculo.marca)
+                stm.setString(3, vehiculo.modelo)
+                stm.setString(4, vehiculo.tipoMotorText)
+                stm.setDouble(5, vehiculo.km)
+                stm.setString(6, vehiculo.fechaMatriculacion.toString())
+                stm.setString(7, vehiculo.foto)
 
                 stm.executeUpdate()
 

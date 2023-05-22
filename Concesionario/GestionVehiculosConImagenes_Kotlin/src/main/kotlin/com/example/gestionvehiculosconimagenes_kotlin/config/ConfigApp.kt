@@ -11,8 +11,8 @@ private  val logger = KotlinLogging.logger {  }
 class ConfigApp {
 
     val APP_URL by lazy {
-        readProperty("app.database.url") ?: "jdbc:sqlite:Database.sq"
-        //readProperty("app.database.url") ?: "jdbc:mysql://localhost/BoostMyTool?serverTimezone=UTC"
+        //readProperty("app.database.url") ?: "jdbc:sqlite:Database.sq"
+        readProperty("app.database.url") ?: "jdbc:mariadb://localhost:3306/empresacehiculo?serverTimezone=UTC"
     }
 
     val APP_USER: String by lazy {
@@ -20,7 +20,7 @@ class ConfigApp {
     }
 
     val APP_PASSWORD: String by lazy {
-        readProperty("app.database.password") ?: "root"
+        readProperty("app.database.password") ?: ""
     }
 
     val APP_INIT: Boolean by lazy {

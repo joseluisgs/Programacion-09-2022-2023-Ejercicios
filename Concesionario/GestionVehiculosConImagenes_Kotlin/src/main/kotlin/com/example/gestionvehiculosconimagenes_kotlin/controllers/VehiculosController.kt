@@ -18,11 +18,11 @@ import javafx.scene.image.ImageView
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.koin.core.qualifier.named
 
 private val logger = KotlinLogging.logger {  }
 
 class VehiculosController: KoinComponent {
+
     //named("MySQL")
     val viewModel: ViewModel by inject()
 
@@ -57,6 +57,9 @@ class VehiculosController: KoinComponent {
     private lateinit var imagenVehiculo: ImageView
 
     @FXML
+    private lateinit var matricula: TextField
+
+    @FXML
     private lateinit var marca: TextField
 
     @FXML
@@ -82,7 +85,6 @@ class VehiculosController: KoinComponent {
 
     @FXML
     fun initialize(){
-
         initBinds()
 
         initEvents()
@@ -92,10 +94,12 @@ class VehiculosController: KoinComponent {
 
     private fun initStyle() {
         logger.debug { "Iniciamos estilos ha aplicar a nuestro programa" }
+
         val styleOpacity = "-fx-opacity: 1"
         fechaMatriculacion.style = styleOpacity
         fechaMatriculacion.editor.style = styleOpacity
         idVehiculo.style = styleOpacity
+        matricula.style = styleOpacity
         marca.style = styleOpacity
         modelo.style = styleOpacity
         tipoMotor.style = styleOpacity
@@ -171,6 +175,7 @@ class VehiculosController: KoinComponent {
             logger.debug { "Actualizamos los datos del vehículo que se muestra por pantalla" }
             idVehiculo.text =
                 if(newstate.vehiculoReference.id == Vehiculo.VEHICULO_ID) "" else newstate.vehiculoReference.id.toString()
+            matricula.text = newstate.vehiculoReference.matricula
             marca.text = newstate.vehiculoReference.marca
             modelo.text = newstate.vehiculoReference.modelo
             tipoMotor.text =

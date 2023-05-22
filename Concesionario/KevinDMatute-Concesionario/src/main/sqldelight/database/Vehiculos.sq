@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS VehiculoEntity (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    marca TEXT NOT NULL,
+    matricula TEXT NOT NULL,
+    modelo TEXT NOT NULL,
+    motor TEXT NOT NULL,
+    km INTEGER NOT NULL,
+    fechaMatriculacion TEXT NOT NULL,
+    imagen TEXT NOT NULL
+);
+
+--INSERT INTO VehiculoEntity (marca, matricula, modelo, motor, km, fechaMatriculacion, imagen) VALUES
+--('Renault', '1111AAA', 'Megane', 'Electrico', 10000, '2021-01-01', 'electrico.png');
+
+selectAll:
+SELECT * FROM VehiculoEntity ORDER BY id;
+
+selectById:
+SELECT * FROM VehiculoEntity WHERE id = ?;
+
+insert:
+INSERT INTO VehiculoEntity (marca, matricula, modelo, motor, km, fechaMatriculacion, imagen)
+VALUES (?, ?, ?,  ?, ?, ?, ?);
+
+update:
+UPDATE VehiculoEntity SET id = ?, matricula = ?, marca = ?, modelo = ?, motor = ?, km = ?,
+                    fechaMatriculacion = ?, imagen = ?;
+
+delete:
+DELETE FROM VehiculoEntity WHERE id = ?;
+
+deleteAll:
+DELETE FROM VehiculoEntity;
+
+selectLastInserted:
+SELECT * FROM VehiculoEntity WHERE id = last_insert_rowid();
