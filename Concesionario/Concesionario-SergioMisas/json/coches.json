@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "matricula": "1234ABC",
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "tipoMotor": "GASOLINA",
+    "fechaMatriculacion": "2021-01-15",
+    "imagen": "imagen1.jpg"
+  },
+  {
+    "id": 4,
+    "matricula": "3456JKL",
+    "marca": "Volkswagen",
+    "modelo": "Golf",
+    "tipoMotor": "GASOLINA",
+    "fechaMatriculacion": "2022-03-02",
+    "imagen": "imagen4.jpg"
+  },
+  {
+    "id": 2,
+    "matricula": "5678DEF",
+    "marca": "Ford",
+    "modelo": "Focus",
+    "tipoMotor": "DIESEL",
+    "fechaMatriculacion": "2020-06-28",
+    "imagen": "imagen2.jpg"
+  },
+  {
+    "id": 5,
+    "matricula": "7890MNO",
+    "marca": "BMW",
+    "modelo": "X5",
+    "tipoMotor": "DIESEL",
+    "fechaMatriculacion": "2021-09-17",
+    "imagen": "imagen5.jpg"
+  },
+  {
+    "id": 3,
+    "matricula": "9012GHI",
+    "marca": "Honda",
+    "modelo": "Civic",
+    "tipoMotor": "HIBRIDO",
+    "fechaMatriculacion": "2019-11-10",
+    "imagen": "imagen3.jpg"
+  }
+]

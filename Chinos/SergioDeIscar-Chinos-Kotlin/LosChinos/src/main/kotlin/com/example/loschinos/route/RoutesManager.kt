@@ -1,6 +1,5 @@
 package com.example.javafxdemo.routers
 
-import com.example.loschinos.MyApp
 import javafx.application.Application
 import javafx.application.Platform
 import javafx.fxml.FXMLLoader
@@ -8,7 +7,6 @@ import javafx.scene.Scene
 import javafx.scene.control.Alert
 import javafx.scene.control.ButtonType
 import javafx.scene.image.Image
-import javafx.scene.image.ImageView
 import javafx.stage.Modality
 import javafx.stage.Stage
 import java.io.InputStream
@@ -72,22 +70,21 @@ object RoutesManager {
         title: String,
         urlIcon: String = "images/icon.png"
     ) {
-        val modalStage = Stage()
         val scene = screenMap[view] ?: return
-        modalStage.title = title
-        modalStage.scene = scene
-        modalStage.icons.add(
-            Image(
-                this.getResourceAsStream(urlIcon)
+        Stage().apply {
+            this.title = title
+            this.scene = scene
+            this.icons.add(
+                Image(
+                    getResourceAsStream(urlIcon)
+                )
             )
-        )
 
-        modalStage.initOwner(stage)
-        modalStage.initModality(Modality.WINDOW_MODAL)
+            this.initOwner(stage)
+            this.initModality(Modality.WINDOW_MODAL)
 
-        modalStage.isResizable = false
-
-        modalStage.show()
+            this.isResizable = false
+        }.show()
     }
 
     fun getResource(resource: String): URL {
