@@ -204,7 +204,7 @@ class DetalleViewController : KoinComponent {
 
         // Validacion del formulario
         viewModel.state.value.coches.forEach {
-            if (textCocheMatricula.text == it.matricula) {
+            if (textCocheMatricula.text == it.matricula && textCocheMatricula.text != viewModel.state.value.cocheSeleccionado.matricula) {
                 return Err(CocheError.ValidationProblem("Ya existe un vehículo con esa matrícula"))
             }
         }
