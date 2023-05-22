@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="411.0" prefWidth="261.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jczhang.jczhangcocheskotlinjavafx.controller.AddItemViewController">
+   <children>
+      <Label layoutX="14.0" layoutY="47.0" prefHeight="30.0" prefWidth="129.0" text="Ficha Coche">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <GridPane layoutY="136.0" prefHeight="170.0" prefWidth="253.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="112.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="141.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="ID:">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label text="Marca: " GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Modelo: " GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label text="Tipo Motor: " GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Kilometros: " GridPane.rowIndex="4">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="21.0" prefWidth="100.0" text="Matriculación:" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idMostrar" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="marcaMostrar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="modeloMostrar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tipoMotorMostrar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="kmMostrar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <DatePicker fx:id="matriculationMostrar" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+      <ImageView fitHeight="104.0" fitWidth="100.0" layoutX="153.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sinImagen.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="-6.0" layoutY="330.0" prefHeight="6.0" prefWidth="297.0" />
+      <Button layoutX="20.0" layoutY="356.0" mnemonicParsing="false" onAction="#onSaveAction" prefHeight="26.0" prefWidth="68.0" text="Guardar" />
+      <Button layoutX="108.0" layoutY="356.0" mnemonicParsing="false" onAction="#onCancelAction" prefHeight="26.0" prefWidth="68.0" text="Cancelar" />
+      <Button layoutX="193.0" layoutY="356.0" mnemonicParsing="false" onAction="#onCleanAction" prefHeight="26.0" prefWidth="68.0" text="Limpiar" />
+   </children>
+</AnchorPane>

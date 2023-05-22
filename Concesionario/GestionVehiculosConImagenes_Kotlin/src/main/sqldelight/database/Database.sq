@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS vehiculoEntity(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    marca TEXT NOT NULL,
+    modelo TEXT NOT NULL,
+    tipoMotor TEXT NOT NULL,
+    km REAL NOT NULL,
+    fechaMatricula TEXT NOT NULL,
+    foto TEXT NOT NULL
+);
+
+selectAllVehiculos:
+SELECT * FROM vehiculoEntity;
+
+selectVehiculoById:
+SELECT * FROM vehiculoEntity WHERE id = ?;
+
+insertVehiculo:
+INSERT INTO vehiculoEntity (marca, modelo, tipoMotor, km, fechaMatricula, foto) VALUES (?, ?, ?, ?, ?, ?);
+
+getLastInsertedVehiculo:
+SELECT * FROM vehiculoEntity WHERE id = last_insert_rowid();
+
+updateVehiculo:
+UPDATE vehiculoEntity SET marca = ?, modelo = ?, tipoMotor = ?, km = ?, fechaMatricula = ?, foto = ? WHERE id = ?;
+
+deleteAllVehiculos:
+DELETE FROM vehiculoEntity;
+
+deleteVehiculoById:
+DELETE FROM vehiculoEntity WHERE id = ?;

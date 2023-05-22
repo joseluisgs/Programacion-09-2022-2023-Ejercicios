@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "marca": "Audi",
+    "modelo": "A4",
+    "motor": "DIESEL",
+    "fehcaMatriculacion": "2007-12-03"
+  },
+  {
+    "id": "2",
+    "marca": "Ford",
+    "modelo": "Focus",
+    "motor": "GASOLINA",
+    "fehcaMatriculacion": "2019-05-02"
+  },
+  {
+    "id": "3",
+    "marca": "Ferrari",
+    "modelo": "F50",
+    "motor": "ELECTRICO",
+    "fehcaMatriculacion": "1989-04-26"
+  }
+]

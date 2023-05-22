@@ -1,0 +1,45 @@
+
+CREATE TABLE IF NOT EXISTS VehiculeTable (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    matricule           TEXT NOT NULL,
+    marca               TEXT NOT NULL,
+    modelo              TEXT NOT NULL,
+    tipoMotor           TEXT NOT NULL,
+    km                  REAL NOT NULL,
+    fechaMantenimiento  TEXT NOT NULL
+);
+
+insertAll:
+INSERT INTO VehiculeTable (matricule,marca,modelo,tipoMotor,km,fechaMantenimiento)
+VALUES ("hhhh", "marca_1", "modelo_1", "DIESEL", 1.5, "2023-05-18"),
+ ("aaaa", "marca_2", "modelo_2", "GASOLINA", 2.0, "2022-05-18"),
+("bbbb", "marca_3", "modelo_3", "HIBRIDO", 2.5, "2021-05-18"),
+("cccc", "marca_4", "modelo_4", "ELECTRICO", 1000.5, "2020-05-18"),
+ ("dddd", "marca_5", "modelo_5", "DIESEL", 2.0, "2022-05-18");
+
+deleteAll:
+DELETE FROM VehiculeTable;
+
+selectAll:
+SELECT * FROM VehiculeTable ORDER BY marca ASC;
+
+selectById:
+SELECT * FROM VehiculeTable WHERE id = ?;
+
+selectLastInserted:
+SELECT * FROM VehiculeTable WHERE id = last_insert_rowid();
+
+getById:
+SELECT * FROM VehiculeTable WHERE id = ?;
+
+getByMatricule:
+SELECT * FROM VehiculeTable WHERE matricule = ?;
+
+insert:
+INSERT INTO VehiculeTable (matricule, marca, modelo, tipoMotor, km, fechaMantenimiento) VALUES (?,?, ?, ?, ?, ?);
+
+update:
+UPDATE VehiculeTable SET matricule= ?, marca = ?, modelo = ?, tipoMotor = ?, km = ?, fechaMantenimiento = ? WHERE id = ?;
+
+delete:
+DELETE FROM VehiculeTable WHERE id = ?;
