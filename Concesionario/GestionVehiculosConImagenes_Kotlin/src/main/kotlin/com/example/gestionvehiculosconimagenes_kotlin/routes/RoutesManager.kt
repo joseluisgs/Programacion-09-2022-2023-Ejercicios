@@ -33,7 +33,7 @@ object RoutesManager {
     fun initMainStage(stage: Stage){
         logger.debug { "Se inicia la vista principal de la aplicación" }
         val fxmlLoader = FXMLLoader(getResource(Vistas.MAIN.url))
-        val scene = Scene(fxmlLoader.load(), 675.0, 430.0)
+        val scene = Scene(fxmlLoader.load(), 650.0, 430.0)
         stage.apply {
             title = "Gestión de vehículos"
             isResizable = false

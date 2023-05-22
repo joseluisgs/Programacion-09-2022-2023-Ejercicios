@@ -45,7 +45,9 @@ class VehiculoRepositorySQLDelight(
     private fun createVehiculo(entity: Vehiculo): Vehiculo{
         logger.debug { "Cargamos un nuevo vehiculo en la base de datos" }
         database.queries.transaction {
-            database.queries.insertVehiculo(entity.marca, entity.modelo, entity.tipoMotor.toString(), entity.km, entity.fechaMatriculacion.toString(), entity.foto)
+            database.queries.insertVehiculo(
+                entity.matricula, entity.marca, entity.modelo, entity.tipoMotor.toString(), entity.km, entity.fechaMatriculacion.toString(), entity.foto
+            )
         }
         return database.queries.getLastInsertedVehiculo().executeAsOne().toVehiculo()
     }
@@ -54,7 +56,7 @@ class VehiculoRepositorySQLDelight(
         logger.debug { "Actualizamos la info de un vehículo" }
         database.queries.transaction {
             database.queries.updateVehiculo(
-                entity.marca, entity.modelo, entity.tipoMotor.toString(), entity.km, entity.fechaMatriculacion.toString(), entity.foto, entity.id
+                entity.matricula, entity.marca, entity.modelo, entity.tipoMotor.toString(), entity.km, entity.fechaMatriculacion.toString(), entity.foto, entity.id
             )
         }
         return entity
