@@ -2,10 +2,8 @@ package dev.joseluisgs.expedientesacademicos.controllers
 
 import com.github.michaelbull.result.*
 import dev.joseluisgs.expedientesacademicos.errors.CocheError
-import dev.joseluisgs.expedientesacademicos.locale.toLocalNumber
 import dev.joseluisgs.expedientesacademicos.models.Coche
 import dev.joseluisgs.expedientesacademicos.routes.RoutesManager
-import dev.joseluisgs.expedientesacademicos.validators.validate
 import dev.joseluisgs.expedientesacademicos.viewmodels.ConcesionarioViewModel
 import javafx.fxml.FXML
 import javafx.scene.control.*
@@ -205,6 +203,11 @@ class DetalleViewController : KoinComponent {
         logger.debug { "validateForm" }
 
         // Validacion del formulario
+        viewModel.state.value.coches.forEach {
+            if (textCocheMatricula.text == it.matricula) {
+                return Err(CocheError.ValidationProblem("Ya existe un vehículo con esa matrícula"))
+            }
+        }
         if (!textCocheMatricula.text.matches("""^[0-9]{4}-[BCDFGHJKLMNPQRSTVWXYZ]{3}${'$'}""".toRegex())) {
             return Err(CocheError.ValidationProblem("La matrícula no cumple el formato correcto (sólo se admite NNNN-LLL)"))
         }
