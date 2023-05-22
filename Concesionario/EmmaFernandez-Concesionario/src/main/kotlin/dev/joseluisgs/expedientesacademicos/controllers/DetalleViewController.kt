@@ -2,11 +2,8 @@ package dev.joseluisgs.expedientesacademicos.controllers
 
 import com.github.michaelbull.result.*
 import dev.joseluisgs.expedientesacademicos.errors.CocheError
-import dev.joseluisgs.expedientesacademicos.locale.toLocalNumber
 import dev.joseluisgs.expedientesacademicos.models.Coche
-import dev.joseluisgs.expedientesacademicos.repositories.CochesRepositoryImpl
 import dev.joseluisgs.expedientesacademicos.routes.RoutesManager
-import dev.joseluisgs.expedientesacademicos.validators.validate
 import dev.joseluisgs.expedientesacademicos.viewmodels.ConcesionarioViewModel
 import javafx.fxml.FXML
 import javafx.scene.control.*
